@@ -16,14 +16,19 @@ public class Main {
 
         //Scanner do zbierania danych z konsoli
         Scanner scanner = new Scanner(System.in);
+        int numberOfCircles;
+
+        System.out.println("Ilość kół: ");
+        numberOfCircles = scanner.nextInt();
 
 
-        for(int i = 0; i < 3; i++) {
+        for (int i = 0; i < numberOfCircles; i++) {
 
             //Dane pojedyńczego koła
             Circle circle = new Circle();
             double pointx;
             double pointy;
+
 
             //Poranie danych z CMD
             System.out.println("Dane koła nr " + i);
@@ -48,59 +53,54 @@ public class Main {
 
         }
 
-        System.out.print("Ilość punktów przecięcia = " + checkForCommonPoints(listOfCircles));
+        System.out.print("Ilość punktów przecięcia = " + checkForCommonPoints(listOfCircles, numberOfCircles));
 
     }
-
 
 
     //Funkcja wyszukuje punkty wspólne dla trzech kół
     //Przyjmuje arraylist zawierający koła
     //Zwraca int zawierający liczbę przecięć
-    public static int checkForCommonPoints(List<Circle> listOfCircles) {
+    public static int checkForCommonPoints(List<Circle> listOfCircles, int numberOfCircles) {
 
-        double x1, x2, y1, y2, radiusSum, centerDistance;
+        double x1, x2, y1, y2, r1, r2, radiusSum, centerDistance;
         int numberOfCommonPoints = 0;
 
         //Magiczna pętla w pętli
         //Losuje wariacje bez powtórzeń zbioru
         //0,1 - 0,2 - 2,1
-        for (int i = 0; i < 3; i++) {
-            for (int j = 1; j < 3; j++) {
+        for (int i = 0; i < numberOfCircles; i++) {
+            for (int j = i + 1; j < numberOfCircles; j++) {
 
-                //Warunek unikający sprawdzania tego samego koła 2 razy
-                //Wyklucza pary 1,1 - 2,2
-                if(i == j) {
-                    j++;
+                x1 = listOfCircles.get(i).getCenter().getX();
+                x2 = listOfCircles.get(j).getCenter().getX();
+                y1 = listOfCircles.get(i).getCenter().getY();
+                y2 = listOfCircles.get(j).getCenter().getX();
+                r1 = listOfCircles.get(i).getRadius();
+                r2 = listOfCircles.get(j).getRadius();
+
+
+                radiusSum = r1 + r2;
+                centerDistance = Math.hypot(x1 - x2, y1 - y2);
+
+                //Jeżeli suma promieni jest większa od odległości środków zwiększ licznik przecięć o 2
+                //Jeżeli jest równa zwiększ o 1
+                //Jeżeli jest mniejsza to koła nie stykają się
+                //Chyba
+                if (x1 == x2 && y1 == y2 && r1 == r2) {
+                    System.out.println("Koła " + i + " i " + j + " są takie same");
+                } else if (x1 == x2 && y1 == y2 && r1 > r2){
+                    System.out.println("Koło " + j + " zawiera się w  " + i);
+                } else if (x1 == x2 && y1 == y2 && r1 < r2) {
+                    System.out.println("Koło " + i + " zawiera się w  " + j);
+                } else if (radiusSum > centerDistance) {
+                    System.out.println("Koła " + i + " i " + j + " przecinają się");
+                    numberOfCommonPoints = numberOfCommonPoints + 2;
+                } else if (radiusSum == centerDistance) {
+                    System.out.println("Koła " + i + " i " + j + " są styczne");
+                    numberOfCommonPoints++;
                 } else {
-
-                    x1 = listOfCircles.get(i).getCenter().getX();
-                    x2 = listOfCircles.get(j).getCenter().getX();
-                    y1 = listOfCircles.get(i).getCenter().getY();
-                    y2 = listOfCircles.get(j).getCenter().getX();
-
-
-                    radiusSum = listOfCircles.get(i).getRadius() + listOfCircles.get(j).getRadius();
-                    centerDistance = Math.hypot(x1-x2, y1-y2);
-
-                    System.out.println("dist = " + centerDistance + " rad = " + radiusSum);
-
-                    //Jeżeli suma promieni jest większa od odległości środków zwiększ licznik przecięć o 2
-                    //Jeżeli jest równa zwiększ o 1
-                    //Jeżeli jest mniejsza to koła nie stykają się
-                    //Chyba
-                    if(radiusSum > centerDistance) {
-                        System.out.println("Koła " + i + " i " + j + " przecinają się");
-                        numberOfCommonPoints = numberOfCommonPoints + 2;
-                    } else if(radiusSum == centerDistance) {
-                        System.out.println("Koła " + i + " i " + j + " są styczne");
-                        numberOfCommonPoints++;
-                    } else {
-                        System.out.println("Koła " + i + " i " + j + " nie mają punktów wspólnych");
-                    }
-
-
-
+                    System.out.println("Koła " + i + " i " + j + " nie mają punktów wspólnych");
                 }
             }
         }
