@@ -13,13 +13,20 @@ public class Main {
 
         //Lista kół
         List<Circle> listOfCircles = new ArrayList<>();
+        int numberOfCircles;
 
         //Scanner do zbierania danych z konsoli
         Scanner scanner = new Scanner(System.in);
-        int numberOfCircles;
 
-        System.out.println("Ilość kół: ");
-        numberOfCircles = scanner.nextInt();
+        if (args.length > 0) {
+            numberOfCircles = Integer.valueOf(args[0]);
+            System.out.println("Ilość kół: " + numberOfCircles);
+        } else {
+
+            System.out.println("Nie podano argumentu wiersza poleceń!");
+            System.out.println("Ilość kół: ");
+            numberOfCircles = scanner.nextInt();
+        }
 
 
         for (int i = 0; i < numberOfCircles; i++) {
@@ -89,7 +96,7 @@ public class Main {
                 //Chyba
                 if (x1 == x2 && y1 == y2 && r1 == r2) {
                     System.out.println("Koła " + i + " i " + j + " są takie same");
-                } else if (x1 == x2 && y1 == y2 && r1 > r2){
+                } else if (x1 == x2 && y1 == y2 && r1 > r2) {
                     System.out.println("Koło " + j + " zawiera się w  " + i);
                 } else if (x1 == x2 && y1 == y2 && r1 < r2) {
                     System.out.println("Koło " + i + " zawiera się w  " + j);
