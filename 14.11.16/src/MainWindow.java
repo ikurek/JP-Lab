@@ -1,7 +1,10 @@
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  * Created by igor on 17.11.16.
@@ -14,15 +17,21 @@ public class MainWindow extends JFrame {
     private JTable mainTable;
     private JPanel mainWindowJPanel;
     private JScrollPane tableJScrollPane;
+    private AddOrderWindow addOrderWindow = new AddOrderWindow();
+    private Object[][] data;
 
 
     public MainWindow() {
         super("Pizza 1.0");
 
         //Konfiguracja tabeli
-        String[] tableColumnNames = {"Numer", "Godzina", "Cena", "Adres", "Kierowca", "Status"};
-        Object[][] data = {{"1", "12:00", "25,00", "Ulica 1", "Andrzej", "Zakończone"}, {"2", "13:00", "29,00", "Ulica 2", "Krzysztof", "Przygotowywanie"}};
-        mainTable = new JTable(data, tableColumnNames);
+        DefaultTableModel model = new DefaultTableModel(new Object[][] {
+                {"Numer", "Godzina", "Cena", "Adres", "Kierowca", "Status"},
+                {"Numer", "Godzina", "Cena", "Adres", "Kierowca", "Status"}},
+                new Object[] {"Numer", "Godzina", "Cena", "Adres", "Kierowca", "Status"});
+
+
+        mainTable.setModel(model);
 
         //Konfiguracja okna dialogowego
         setContentPane(mainWindowJPanel);
@@ -30,6 +39,7 @@ public class MainWindow extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setSize(800, 640);
         setLocationRelativeTo(null);
+
 
 
         setVisible(true);
@@ -46,11 +56,20 @@ public class MainWindow extends JFrame {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
 
+                addOrderWindow.addWindowListener(new WindowAdapter() {
+
+                    @Override
+                    public void windowClosing(WindowEvent arg0) {
+                        model.addRow(addOrderWindow.readUserInput());
+                    }
+
+                });
+
                 //Pokaż okno dodania zamówienia
                 EventQueue.invokeLater(new Runnable() {
                     @Override
                     public void run() {
-                        new AddOrderWindow();
+                        addOrderWindow.setVisible(true);
                     }
                 });
 

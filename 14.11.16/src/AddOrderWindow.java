@@ -20,6 +20,8 @@ public class AddOrderWindow extends JFrame {
     private JLabel adresLabel;
     private JLabel timeLabel;
     private JLabel statusLabel;
+    private JTextField numberTextField;
+    private JLabel numberLabel;
 
 
     public AddOrderWindow(){
@@ -39,5 +41,21 @@ public class AddOrderWindow extends JFrame {
                 AddOrderWindow.super.dispose();
             }
         });
+        addButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                readUserInput();
+            }
+        });
+    }
+
+
+
+    public String[] readUserInput() {
+
+        String[] data = {priceLabel.getText(), adresLabel.getText(), timeLabel.getText(), statusLabel.getText()};
+
+        return data;
+
     }
 }

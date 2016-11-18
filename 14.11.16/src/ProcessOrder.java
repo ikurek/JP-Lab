@@ -26,4 +26,11 @@ public class ProcessOrder {
 
     }
 
+    //Funkcja zamienia obiekt order na tablicę stringów
+    //Konieczne żeby móc wyświetlić order w tablicy
+    public String[] parseOrderToStringArray() {
+
+        return null;
+    }
+
 }
