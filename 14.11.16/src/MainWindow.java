@@ -1,4 +1,5 @@
 import javax.swing.*;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -27,8 +28,8 @@ public class MainWindow extends JFrame {
         setContentPane(mainWindowJPanel);
         tableJScrollPane.setViewportView(mainTable);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(640, 480);
-        setLocation(300, 200);
+        setSize(800, 640);
+        setLocationRelativeTo(null);
 
 
         setVisible(true);
@@ -44,6 +45,14 @@ public class MainWindow extends JFrame {
         addOrderButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
+
+                //Pokaż okno dodania zamówienia
+                EventQueue.invokeLater(new Runnable() {
+                    @Override
+                    public void run() {
+                        new AddOrderWindow();
+                    }
+                });
 
             }
         });
