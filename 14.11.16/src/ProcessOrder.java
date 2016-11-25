@@ -9,9 +9,9 @@ import java.util.ArrayList;
 public class ProcessOrder {
 
     //Funkcja dodaje tworzy obiekt klasy order
-    public Order createOrder(String number, String pizza, String destination, String isFinished, String price) {
+    public Order createOrder(String number, String adress, String pizza, String price, String driver, String isFinished) {
 
-        Order order = new Order(number, pizza, destination, isFinished, price);
+        Order order = new Order(number, adress, pizza, price, driver, isFinished);
 
         return order;
     }
@@ -31,7 +31,7 @@ public class ProcessOrder {
 
 
 
-        String[] result = {order.getNumber(), "0", order.getPrice(), order.getDestination(), "Andrzej", order.isFinished};
+        String[] result = {order.getNumber(), order.getAdress(), order.getPizza(), order.getPrice(), "Andrzej", order.getIsFinished()};
 
 
         return result;

@@ -7,14 +7,14 @@ public class Order {
     String number;
     String pizza;
     String price;
-    String destination;
+    String adress;
 
 
     //Konstruktor obiektu, przyjmujący wartości
-    public Order(String number, String pizza, String destination, String isFinished, String price) {
+    public Order(String number, String adress, String pizza, String price, String driver, String isFinished) {
 
         this.number = number;
-        this.destination = destination;
+        this.adress = adress;
         this.pizza = pizza;
         this.isFinished = isFinished;
         this.price = price;
@@ -35,9 +35,9 @@ public class Order {
 
     }
 
-    public String getDestination() {
+    public String getAdress() {
 
-        return this.destination;
+        return this.adress;
 
     }
 
@@ -53,7 +53,7 @@ public class Order {
 
     }
 
-    public void setIsFinished(Boolean done) {
+    public void setIsFinished() {
 
         this.isFinished = "Zakończone";
 

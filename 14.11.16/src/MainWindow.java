@@ -30,7 +30,7 @@ public class MainWindow extends JFrame {
 
         //Konfiguracja tabeli
         this.model = new DefaultTableModel(new Object[][]{},
-                new Object[]{"Numer", "Pizza", "Cena", "Adres", "Kierowca", "Status"});
+                new Object[]{"Numer", "Adres", "Pizza", "Cena", "Kierowca", "Status"});
 
 
         mainTable.setModel(this.model);
@@ -72,11 +72,11 @@ public class MainWindow extends JFrame {
         price = priceTextField.getText();
 
         //Tworzy nowy obiekt typu Order i zapisuje do listy
-        Order order = new Order(number, pizza, adress, "W trakcie", price);
+        Order order = new Order(number, adress, pizza, price, "Andrzej", "W trakcie");
         this.listOfOrders.add(order);
 
         //Tworzy string i dodje go do tabeli
-        String[] orderStringArray = {number, pizza, price, adress, "Kierowca", "Status"};
+        String[] orderStringArray = {number, pizza, price, adress, "Andrzej", "W trakcie"};
         this.model.addRow(orderStringArray);
 
     }
