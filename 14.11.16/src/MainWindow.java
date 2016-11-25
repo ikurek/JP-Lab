@@ -10,8 +10,12 @@ import java.util.ArrayList;
 
 //Klasa zawiera okno dialogowe i listgenery przycisków
 public class MainWindow extends JFrame {
+
+    //Zmienne klasowe
     public ArrayList<Order> listOfOrders = new ArrayList<>();
-    public ProcessOrder processOrder;
+    public ProcessOrder processOrder = new ProcessOrder();
+
+    //Elementy UI
     public DefaultTableModel model;
     private JButton exitButton;
     private JButton addOrderButton;
@@ -22,7 +26,6 @@ public class MainWindow extends JFrame {
     private JTextField adresTextFiels;
     private JTextField pizzaTextField;
     private JTextField priceTextField;
-    private Object[][] data;
 
 
     public MainWindow() {
@@ -65,18 +68,25 @@ public class MainWindow extends JFrame {
 
     public void saveUserOrder() {
         //Przechwytuje text z jTextField
-        String number, pizza, adress, price;
+        String number, pizza, adress, price, driver;
         number = numberTextField.getText();
         pizza = pizzaTextField.getText();
         adress = adresTextFiels.getText();
         price = priceTextField.getText();
 
         //Tworzy nowy obiekt typu Order i zapisuje do listy
-        Order order = new Order(number, adress, pizza, price, "Andrzej", "W trakcie");
+        Order order = new Order(number, adress, pizza, price, "Nie przyznano", "W trakcie");
+
+        //Przypisuje kierowcę do obiektu order
+        //Wymaga danych z obiektu order, dlatego taka śmieszna konstukcja
+        driver = processOrder.assignDriver(order);
+        order.setDriver(driver);
+
+        //dodaje obiekt order do listy
         this.listOfOrders.add(order);
 
         //Tworzy string i dodje go do tabeli
-        String[] orderStringArray = {number, pizza, price, adress, "Andrzej", "W trakcie"};
+        String[] orderStringArray = {number, pizza, price, adress, driver, "W trakcie"};
         this.model.addRow(orderStringArray);
 
     }

@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 
 /**
  * Created by igor on 14.11.16.
@@ -7,14 +8,6 @@ import java.util.ArrayList;
 //Klasa służy do przetwarzania zamówień
 //Usuwanie, dodawanie, itd
 public class ProcessOrder {
-
-    //Funkcja dodaje tworzy obiekt klasy order
-    public Order createOrder(String number, String adress, String pizza, String price, String driver, String isFinished) {
-
-        Order order = new Order(number, adress, pizza, price, driver, isFinished);
-
-        return order;
-    }
 
     //Funkcja przyjmuje listę i obiekt klasy order
     //Zwraca listę z dodanym obiektem order
@@ -29,12 +22,45 @@ public class ProcessOrder {
     //Konieczne żeby móc wyświetlić order w tablicy
     public String[] parseOrderToStringArray(Order order) {
 
-
-
-        String[] result = {order.getNumber(), order.getAdress(), order.getPizza(), order.getPrice(), "Andrzej", order.getIsFinished()};
+        String[] result = {order.getNumber(), order.getAdress(), order.getPizza(), order.getPrice(), "Nie przyznano", order.getIsFinished()};
 
 
         return result;
+    }
+
+    //Funkcja przyjmuje obiekt typu order
+    //Zwraca obiekt typu order z dopasowanym kierowcą
+    public String assignDriver(Order order) {
+
+        String driver = "Nie przyznano";
+        order.getAdress();
+
+        Random rand = new Random();
+
+        // nextInt is normally exclusive of the top value,
+        // so add 1 to make it inclusive
+        int randomNum = rand.nextInt(4-1) + 1;
+
+        switch(randomNum) {
+            case(1):
+                driver = "Andrzej";
+                break;
+
+            case(2):
+                driver = "Krzysztof";
+                break;
+
+            case(3):
+                driver = "Stefan";
+                break;
+
+            case(4):
+                driver = "Jarek";
+                break;
+        }
+
+
+        return driver;
     }
 
 }

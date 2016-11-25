@@ -8,6 +8,7 @@ public class Order {
     String pizza;
     String price;
     String adress;
+    String driver;
 
 
     //Konstruktor obiektu, przyjmujący wartości
@@ -18,6 +19,7 @@ public class Order {
         this.pizza = pizza;
         this.isFinished = isFinished;
         this.price = price;
+        this.driver = driver;
 
     }
 
@@ -50,6 +52,18 @@ public class Order {
     public String getIsFinished() {
 
         return this.isFinished;
+
+    }
+
+    public String getDriver() {
+
+        return this.driver;
+
+    }
+
+    public void setDriver(String driver) {
+
+        this.driver = driver;
 
     }
 
