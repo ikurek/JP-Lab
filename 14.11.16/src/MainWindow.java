@@ -1,10 +1,8 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
-import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.WindowAdapter;
-import java.awt.event.WindowEvent;
+import java.util.ArrayList;
 
 /**
  * Created by igor on 17.11.16.
@@ -12,36 +10,37 @@ import java.awt.event.WindowEvent;
 
 //Klasa zawiera okno dialogowe i listgenery przycisków
 public class MainWindow extends JFrame {
+    public ArrayList<Order> listOfOrders = new ArrayList<>();
+    public ProcessOrder processOrder;
+    public DefaultTableModel model;
     private JButton exitButton;
     private JButton addOrderButton;
     private JTable mainTable;
     private JPanel mainWindowJPanel;
     private JScrollPane tableJScrollPane;
-    private AddOrderWindow addOrderWindow = new AddOrderWindow();
+    private JTextField numberTextField;
+    private JTextField adresTextFiels;
+    private JTextField pizzaTextField;
+    private JTextField priceTextField;
     private Object[][] data;
 
 
     public MainWindow() {
-        super("Pizza 1.0");
+        super("Pizza 1.1");
 
         //Konfiguracja tabeli
-        DefaultTableModel model = new DefaultTableModel(new Object[][] {
-                {"Numer", "Godzina", "Cena", "Adres", "Kierowca", "Status"},
-                {"Numer", "Godzina", "Cena", "Adres", "Kierowca", "Status"}},
-                new Object[] {"Numer", "Godzina", "Cena", "Adres", "Kierowca", "Status"});
+        this.model = new DefaultTableModel(new Object[][]{},
+                new Object[]{"Numer", "Pizza", "Cena", "Adres", "Kierowca", "Status"});
 
 
-        mainTable.setModel(model);
+        mainTable.setModel(this.model);
 
         //Konfiguracja okna dialogowego
         setContentPane(mainWindowJPanel);
         tableJScrollPane.setViewportView(mainTable);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setSize(800, 640);
+        pack();
         setLocationRelativeTo(null);
-
-
-
         setVisible(true);
 
         //Listenery do przycisków
@@ -56,24 +55,39 @@ public class MainWindow extends JFrame {
             @Override
             public void actionPerformed(ActionEvent actionEvent) {
 
-                addOrderWindow.addWindowListener(new WindowAdapter() {
-
-                    @Override
-                    public void windowClosing(WindowEvent arg0) {
-                        model.addRow(addOrderWindow.readUserInput());
-                    }
-
-                });
-
-                //Pokaż okno dodania zamówienia
-                EventQueue.invokeLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        addOrderWindow.setVisible(true);
-                    }
-                });
+                saveUserOrder();
+                clearTextFields();
 
             }
         });
     }
+
+
+    public void saveUserOrder() {
+        //Przechwytuje text z jTextField
+        String number, pizza, adress, price;
+        number = numberTextField.getText();
+        pizza = pizzaTextField.getText();
+        adress = adresTextFiels.getText();
+        price = priceTextField.getText();
+
+        //Tworzy nowy obiekt typu Order i zapisuje do listy
+        Order order = new Order(number, pizza, adress, "W trakcie", price);
+        this.listOfOrders.add(order);
+
+        //Tworzy string i dodje go do tabeli
+        String[] orderStringArray = {number, pizza, price, adress, "Kierowca", "Status"};
+        this.model.addRow(orderStringArray);
+
+    }
+
+    public void clearTextFields() {
+
+        numberTextField.setText("");
+        pizzaTextField.setText("");
+        adresTextFiels.setText("");
+        priceTextField.setText("");
+
+    }
+
 }

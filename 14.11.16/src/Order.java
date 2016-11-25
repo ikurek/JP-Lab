@@ -1,19 +1,17 @@
-import java.util.ArrayList;
-
 /**
  * Created by igor on 14.11.16.
  */
 public class Order {
 
-    Boolean isFinished;
-    Integer number;
-    ArrayList<String> pizza;
-    Double price;
+    String isFinished;
+    String number;
+    String pizza;
+    String price;
     String destination;
 
 
     //Konstruktor obiektu, przyjmujący wartości
-    public Order(Integer number, ArrayList<String> pizza, String destination, Boolean isFinished, Double price) {
+    public Order(String number, String pizza, String destination, String isFinished, String price) {
 
         this.number = number;
         this.destination = destination;
@@ -25,13 +23,13 @@ public class Order {
 
 
     //Gettery i Settery
-    public Integer getNumber() {
+    public String getNumber() {
 
         return this.number;
 
     }
 
-    public ArrayList<String> getPizza() {
+    public String getPizza() {
 
         return this.pizza;
 
@@ -43,13 +41,13 @@ public class Order {
 
     }
 
-    public Double getPrice() {
+    public String getPrice() {
 
         return this.price;
 
     }
 
-    public Boolean getIsFinished() {
+    public String getIsFinished() {
 
         return this.isFinished;
 
@@ -57,7 +55,7 @@ public class Order {
 
     public void setIsFinished(Boolean done) {
 
-        this.isFinished = done;
+        this.isFinished = "Zakończone";
 
     }
 

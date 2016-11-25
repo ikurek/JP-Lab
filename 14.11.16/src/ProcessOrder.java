@@ -1,4 +1,3 @@
-import javax.swing.*;
 import java.util.ArrayList;
 
 /**
@@ -10,7 +9,7 @@ import java.util.ArrayList;
 public class ProcessOrder {
 
     //Funkcja dodaje tworzy obiekt klasy order
-    public Order createOrder(Integer number, ArrayList<String> pizza, String destination, Boolean isFinished, Double price) {
+    public Order createOrder(String number, String pizza, String destination, String isFinished, String price) {
 
         Order order = new Order(number, pizza, destination, isFinished, price);
 
@@ -28,9 +27,14 @@ public class ProcessOrder {
 
     //Funkcja zamienia obiekt order na tablicę stringów
     //Konieczne żeby móc wyświetlić order w tablicy
-    public String[] parseOrderToStringArray() {
+    public String[] parseOrderToStringArray(Order order) {
 
-        return null;
+
+
+        String[] result = {order.getNumber(), "0", order.getPrice(), order.getDestination(), "Andrzej", order.isFinished};
+
+
+        return result;
     }
 
 }
