@@ -25,13 +25,15 @@ public class MainWindow extends JFrame {
     private JPanel mainWindowJPanel;
     private JScrollPane tableJScrollPane;
     private JButton logButton;
+    private JPanel buttonsJPanel;
+    private JButton buttonFinish;
 
 
     public MainWindow() {
         super("Pizza 1.3");
 
         //Konfiguracja tabeli
-        this.model = new DefaultTableModel(new Object[][]{},
+        this.model = new DefaultTableModel(new Object[][]{new Object[]{"012483081", "Ul. Wittiga 22, Wrocław", "Duża Margherita x1; ", "18,75", "Jarek", "Zakończone", "12:00"}},
                 new Object[]{"Numer Telefonu", "Adres", "Pizza", "Cena", "Kierowca", "Status", "Godzina Zamówienia"});
 
 

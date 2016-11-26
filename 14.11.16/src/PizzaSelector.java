@@ -104,7 +104,7 @@ public class PizzaSelector extends JDialog {
 
         }
 
-        Double price = Double.valueOf(priceLabel1.getText())*ammountMargherita + Double.valueOf(priceLabel2.getText())*ammountFunghi + Double.valueOf(priceLabel3.getText())*ammountFarmerska + Double.valueOf(priceLabel4.getText())*ammountHawajska;
+        Double price = Double.valueOf(priceLabel1.getText()) * ammountMargherita + Double.valueOf(priceLabel2.getText()) * ammountFunghi + Double.valueOf(priceLabel3.getText()) * ammountFarmerska + Double.valueOf(priceLabel4.getText()) * ammountHawajska;
 
         Order order = new Order(numberTextField.getText(), adressTextField.getText(), pizza, price.toString(), "Brak", "W toku", "00:00");
 
@@ -112,12 +112,12 @@ public class PizzaSelector extends JDialog {
 
     }
 
-    public void updatePricesOnSpinnerValueChange(Object selected, Integer comboboxnumber) {
+    public void updatePricesOnSpinnerValueChange(Object selected, Integer comboBoxNumber) {
 
         JLabel label = new JLabel();
         Double price = 0.00;
 
-        switch (comboboxnumber) {
+        switch (comboBoxNumber) {
 
             case 1:
                 label = priceLabel1;
