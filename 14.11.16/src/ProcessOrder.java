@@ -25,7 +25,7 @@ public class ProcessOrder {
     //Konieczne żeby móc wyświetlić order w tablicy
     public String[] parseOrderToStringArray(Order order) {
 
-        String[] result = {order.getNumber(), order.getAdress(), order.getPizza(), order.getPrice(), "Nie przyznano", order.getIsFinished()};
+        String[] result = {order.getNumber(), order.getAdress(), order.getPizza(), order.getPrice(), order.getDriver(), order.getIsFinished(), order.getDateOfOrder()};
 
 
         return result;
@@ -42,23 +42,31 @@ public class ProcessOrder {
 
         // nextInt is normally exclusive of the top value,
         // so add 1 to make it inclusive
-        int randomNum = rand.nextInt(4-1) + 1;
+        int randomNum = rand.nextInt(6 - 1) + 1;
 
-        switch(randomNum) {
-            case(1):
+        switch (randomNum) {
+            case (1):
                 driver = "Andrzej";
                 break;
 
-            case(2):
+            case (2):
                 driver = "Krzysztof";
                 break;
 
-            case(3):
+            case (3):
                 driver = "Stefan";
                 break;
 
-            case(4):
+            case (4):
                 driver = "Jarek";
+                break;
+
+            case (5):
+                driver = "Brajan";
+                break;
+
+            case (6):
+                driver = "Sebastian";
                 break;
         }
 
@@ -72,24 +80,29 @@ public class ProcessOrder {
         Date date = new Date();
         return dateFormat.format(date);
 
+
     }
 
     public String generateLog(ArrayList<Order> listOfOrders) {
 
         StringBuilder log = new StringBuilder();
 
-        log.append("Godzina - ");
         log.append("Numer - ");
         log.append("Adres - ");
-        log.append("Status - ");
+        log.append("Pizza - ");
+        log.append("Cena - ");
+        log.append("Kierowca - ");
+        log.append("Status");
         log.append(System.lineSeparator());
 
 
-        for(Order order : listOfOrders) {
+        for (Order order : listOfOrders) {
 
-            log.append(order.getDateOfOrder() + " - ");
             log.append(order.getNumber() + " - ");
             log.append(order.getAdress() + " - ");
+            log.append(order.getPizza() + " - ");
+            log.append(order.getPrice() + " - ");
+            log.append(order.getDriver() + " - ");
             log.append(order.getIsFinished());
             log.append(System.lineSeparator());
 

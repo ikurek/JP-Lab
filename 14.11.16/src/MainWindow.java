@@ -15,6 +15,7 @@ public class MainWindow extends JFrame {
     //Zmienne klasowe
     public ArrayList<Order> listOfOrders = new ArrayList<>();
     public ProcessOrder processOrder = new ProcessOrder();
+    public JDialog pizzaSelector = new PizzaSelector();
 
     //Elementy UI
     public DefaultTableModel model;
@@ -23,19 +24,15 @@ public class MainWindow extends JFrame {
     private JTable mainTable;
     private JPanel mainWindowJPanel;
     private JScrollPane tableJScrollPane;
-    private JTextField numberTextField;
-    private JTextField adressTextField;
-    private JTextField pizzaTextField;
-    private JTextField priceTextField;
     private JButton logButton;
 
 
     public MainWindow() {
-        super("Pizza 1.1");
+        super("Pizza 1.3");
 
         //Konfiguracja tabeli
         this.model = new DefaultTableModel(new Object[][]{},
-                new Object[]{"Numer", "Adres", "Pizza", "Cena", "Kierowca", "Status", "Godzina zamówienia"});
+                new Object[]{"Numer Telefonu", "Adres", "Pizza", "Cena", "Kierowca", "Status", "Godzina Zamówienia"});
 
 
         mainTable.setModel(this.model);
@@ -44,7 +41,7 @@ public class MainWindow extends JFrame {
         setContentPane(mainWindowJPanel);
         tableJScrollPane.setViewportView(mainTable);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        pack();
+        setSize(1280, 720);
         setLocationRelativeTo(null);
         setVisible(true);
 
@@ -61,7 +58,6 @@ public class MainWindow extends JFrame {
             public void actionPerformed(ActionEvent actionEvent) {
 
                 saveUserOrder();
-                clearTextFields();
 
             }
         });
@@ -79,39 +75,34 @@ public class MainWindow extends JFrame {
     }
 
 
+    //Zapisuje zamówienie z osobnego okna
+    //Przypisuje kierowcę i datę zamówienie
     public void saveUserOrder() {
-        //Przechwytuje text z jTextField
-        String number, pizza, adress, price, driver, date;
-        number = numberTextField.getText();
-        pizza = pizzaTextField.getText();
-        adress = adressTextField.getText();
-        price = priceTextField.getText();
-        date = processOrder.assignDate();
+        String driver = "";
+        String date = "";
+        Order order;
 
-        //Tworzy nowy obiekt typu Order i zapisuje do listy
-        Order order = new Order(number, adress, pizza, price, "Nie przyznano", "W trakcie", date);
+
+        System.out.println("Selector dialog created");
+        order = new PizzaSelector().showDialogForResult();
+        System.out.println("Selector dialog returned ");
 
         //Przypisuje kierowcę do obiektu order
         //Wymaga danych z obiektu order, dlatego taka śmieszna konstukcja
         driver = processOrder.assignDriver(order);
         order.setDriver(driver);
 
+        date = processOrder.assignDate();
+        order.setDateOfOrder(date);
+
         //dodaje obiekt order do listy
         this.listOfOrders.add(order);
 
         //Tworzy string i dodje go do tabeli
-        String[] orderStringArray = {number, pizza, price, adress, driver, "W trakcie", date};
+        String[] orderStringArray = processOrder.parseOrderToStringArray(order);
         this.model.addRow(orderStringArray);
 
     }
 
-    public void clearTextFields() {
-
-        numberTextField.setText("");
-        pizzaTextField.setText("");
-        adressTextField.setText("");
-        priceTextField.setText("");
-
-    }
 
 }

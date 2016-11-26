@@ -62,26 +62,26 @@ public class Order {
 
     }
 
-    public String getDateOfOrder() {
-
-        return this.dateOfOrder;
-    }
-
     public void setDriver(String driver) {
 
         this.driver = driver;
 
     }
 
-    public void setIsFinished() {
+    public String getDateOfOrder() {
 
-        this.isFinished = "Zakończone";
-
+        return this.dateOfOrder;
     }
 
     public void setDateOfOrder(String dateOfOrder) {
 
         this.dateOfOrder = dateOfOrder;
+
+    }
+
+    public void setIsFinished() {
+
+        this.isFinished = "Zakończone";
 
     }
 
