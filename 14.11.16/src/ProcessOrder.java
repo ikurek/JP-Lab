@@ -1,4 +1,7 @@
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.Random;
 
 /**
@@ -61,6 +64,39 @@ public class ProcessOrder {
 
 
         return driver;
+    }
+
+    public String assignDate() {
+
+        DateFormat dateFormat = new SimpleDateFormat("HH:mm");
+        Date date = new Date();
+        return dateFormat.format(date);
+
+    }
+
+    public String generateLog(ArrayList<Order> listOfOrders) {
+
+        StringBuilder log = new StringBuilder();
+
+        log.append("Godzina - ");
+        log.append("Numer - ");
+        log.append("Adres - ");
+        log.append("Status - ");
+        log.append(System.lineSeparator());
+
+
+        for(Order order : listOfOrders) {
+
+            log.append(order.getDateOfOrder() + " - ");
+            log.append(order.getNumber() + " - ");
+            log.append(order.getAdress() + " - ");
+            log.append(order.getIsFinished());
+            log.append(System.lineSeparator());
+
+        }
+
+        return log.toString();
+
     }
 
 }

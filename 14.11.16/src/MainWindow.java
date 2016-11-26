@@ -1,5 +1,6 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -23,9 +24,10 @@ public class MainWindow extends JFrame {
     private JPanel mainWindowJPanel;
     private JScrollPane tableJScrollPane;
     private JTextField numberTextField;
-    private JTextField adresTextFiels;
+    private JTextField adressTextField;
     private JTextField pizzaTextField;
     private JTextField priceTextField;
+    private JButton logButton;
 
 
     public MainWindow() {
@@ -33,7 +35,7 @@ public class MainWindow extends JFrame {
 
         //Konfiguracja tabeli
         this.model = new DefaultTableModel(new Object[][]{},
-                new Object[]{"Numer", "Adres", "Pizza", "Cena", "Kierowca", "Status"});
+                new Object[]{"Numer", "Adres", "Pizza", "Cena", "Kierowca", "Status", "Godzina zamówienia"});
 
 
         mainTable.setModel(this.model);
@@ -63,19 +65,31 @@ public class MainWindow extends JFrame {
 
             }
         });
+        logButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+
+                String log = processOrder.generateLog(listOfOrders);
+                System.out.print(log);
+                JOptionPane.showMessageDialog(new Frame(), log, "Statystyka",
+                        JOptionPane.PLAIN_MESSAGE);
+
+            }
+        });
     }
 
 
     public void saveUserOrder() {
         //Przechwytuje text z jTextField
-        String number, pizza, adress, price, driver;
+        String number, pizza, adress, price, driver, date;
         number = numberTextField.getText();
         pizza = pizzaTextField.getText();
-        adress = adresTextFiels.getText();
+        adress = adressTextField.getText();
         price = priceTextField.getText();
+        date = processOrder.assignDate();
 
         //Tworzy nowy obiekt typu Order i zapisuje do listy
-        Order order = new Order(number, adress, pizza, price, "Nie przyznano", "W trakcie");
+        Order order = new Order(number, adress, pizza, price, "Nie przyznano", "W trakcie", date);
 
         //Przypisuje kierowcę do obiektu order
         //Wymaga danych z obiektu order, dlatego taka śmieszna konstukcja
@@ -86,7 +100,7 @@ public class MainWindow extends JFrame {
         this.listOfOrders.add(order);
 
         //Tworzy string i dodje go do tabeli
-        String[] orderStringArray = {number, pizza, price, adress, driver, "W trakcie"};
+        String[] orderStringArray = {number, pizza, price, adress, driver, "W trakcie", date};
         this.model.addRow(orderStringArray);
 
     }
@@ -95,7 +109,7 @@ public class MainWindow extends JFrame {
 
         numberTextField.setText("");
         pizzaTextField.setText("");
-        adresTextFiels.setText("");
+        adressTextField.setText("");
         priceTextField.setText("");
 
     }

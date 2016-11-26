@@ -9,10 +9,11 @@ public class Order {
     String price;
     String adress;
     String driver;
+    String dateOfOrder;
 
 
     //Konstruktor obiektu, przyjmujący wartości
-    public Order(String number, String adress, String pizza, String price, String driver, String isFinished) {
+    public Order(String number, String adress, String pizza, String price, String driver, String isFinished, String dateOfOrder) {
 
         this.number = number;
         this.adress = adress;
@@ -20,7 +21,7 @@ public class Order {
         this.isFinished = isFinished;
         this.price = price;
         this.driver = driver;
-
+        this.dateOfOrder = dateOfOrder;
     }
 
 
@@ -61,6 +62,11 @@ public class Order {
 
     }
 
+    public String getDateOfOrder() {
+
+        return this.dateOfOrder;
+    }
+
     public void setDriver(String driver) {
 
         this.driver = driver;
@@ -70,6 +76,12 @@ public class Order {
     public void setIsFinished() {
 
         this.isFinished = "Zakończone";
+
+    }
+
+    public void setDateOfOrder(String dateOfOrder) {
+
+        this.dateOfOrder = dateOfOrder;
 
     }
 
