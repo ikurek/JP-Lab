@@ -15,7 +15,6 @@ public class MainWindow extends JFrame {
     //Zmienne klasowe
     public ArrayList<Order> listOfOrders = new ArrayList<>();
     public ProcessOrder processOrder = new ProcessOrder();
-    public JDialog pizzaSelector = new PizzaSelector();
 
     //Elementy UI
     public DefaultTableModel model;
@@ -33,7 +32,8 @@ public class MainWindow extends JFrame {
         super("Pizza 1.3");
 
         //Konfiguracja tabeli
-        this.model = new DefaultTableModel(new Object[][]{new Object[]{"012483081", "Ul. Wittiga 22, Wrocław", "Duża Margherita x1; ", "18,75", "Jarek", "Zakończone", "12:00"}},
+        this.model = new DefaultTableModel(
+                new Object[][]{new Object[]{"012483081", "Ul. Wittiga 22, Wrocław", "Duża Margherita x1; ", "18,75", "Jarek", "Zakończone", "12:00"}},
                 new Object[]{"Numer Telefonu", "Adres", "Pizza", "Cena", "Kierowca", "Status", "Godzina Zamówienia"});
 
 
@@ -74,6 +74,21 @@ public class MainWindow extends JFrame {
 
             }
         });
+        buttonFinish.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                Integer selectedRow = mainTable.getSelectedRow();
+                System.out.println(selectedRow.toString());
+                model.setValueAt("Zakończone", selectedRow, 5);
+
+                Order selectedOrder = listOfOrders.get(selectedRow-1);
+                selectedOrder.setIsFinished();
+
+
+
+                listOfOrders.set((selectedRow-1), selectedOrder);
+            }
+        });
     }
 
 
@@ -85,15 +100,13 @@ public class MainWindow extends JFrame {
         Order order;
 
 
-        System.out.println("Selector dialog created");
+        //Pobiera obiekt klasy order z okna dialogowego
         order = new PizzaSelector().showDialogForResult();
-        System.out.println("Selector dialog returned ");
 
-        //Przypisuje kierowcę do obiektu order
+        //Przypisuje kierowcę i datę do obiektu order
         //Wymaga danych z obiektu order, dlatego taka śmieszna konstukcja
         driver = processOrder.assignDriver(order);
         order.setDriver(driver);
-
         date = processOrder.assignDate();
         order.setDateOfOrder(date);
 
