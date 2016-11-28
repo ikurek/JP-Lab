@@ -2,7 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="07c401aa-5e0b-4b92-be08-ad00ad345fcf" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/MainWindow.java" afterPath="$PROJECT_DIR$/src/MainWindow.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/14.11.16/MainWindow$1.class" afterPath="$PROJECT_DIR$/out/production/14.11.16/MainWindow$1.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/14.11.16/MainWindow$2.class" afterPath="$PROJECT_DIR$/out/production/14.11.16/MainWindow$2.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/14.11.16/MainWindow$3.class" afterPath="$PROJECT_DIR$/out/production/14.11.16/MainWindow$3.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/14.11.16/MainWindow$4.class" afterPath="$PROJECT_DIR$/out/production/14.11.16/MainWindow$4.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/out/production/14.11.16/MainWindow.class" afterPath="$PROJECT_DIR$/out/production/14.11.16/MainWindow.class" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../README.md" afterPath="$PROJECT_DIR$/../README.md" />
     </list>
     <ignored path="14.11.16.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -27,7 +33,7 @@
       <file leaf-file-name="MainWindow.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/MainWindow.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="477">
+            <state relative-caret-position="18">
               <caret line="35" column="16" lean-forward="false" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -42,7 +48,7 @@
       <file leaf-file-name="PizzaSelector.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/PizzaSelector.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="815">
+            <state relative-caret-position="617">
               <caret line="114" column="90" lean-forward="false" selection-start-line="114" selection-start-column="90" selection-end-line="114" selection-end-column="90" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -58,7 +64,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MainWindow.form" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MainWindow.form" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/MainWindow.form">
           <provider selected="true" editor-type-id="ui-designer">
             <state />
@@ -87,18 +93,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ProcessOrder.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="ProcessOrder.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/ProcessOrder.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="432">
-              <caret line="35" column="44" lean-forward="false" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
+            <state relative-caret-position="378">
+              <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#addOrder#0;class#ProcessOrder#0" expanded="false" />
-                <element signature="method#parseOrderToStringArray#0;class#ProcessOrder#0" expanded="false" />
-                <element signature="method#assignDriver#0;class#ProcessOrder#0" expanded="false" />
-                <element signature="method#assignDate#0;class#ProcessOrder#0" expanded="false" />
-                <element signature="method#generateLog#0;class#ProcessOrder#0" expanded="false" />
               </folding>
             </state>
           </provider>
@@ -163,6 +164,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -210,8 +213,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -337,11 +338,13 @@
       <workItem from="1480192630093" duration="1109000" />
       <workItem from="1480193762733" duration="118000" />
       <workItem from="1480263931713" duration="1357000" />
+      <workItem from="1480265787380" duration="75000" />
+      <workItem from="1480344210907" duration="192000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="43485000" />
+    <option name="totallyTimeSpent" value="43752000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="25" width="1920" height="1055" extended-state="6" />
@@ -425,11 +428,6 @@
           <caret line="65" column="22" lean-forward="false" selection-start-line="65" selection-start-column="22" selection-end-line="65" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#addOrder#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#parseOrderToStringArray#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#assignDriver#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#assignDate#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#generateLog#0;class#ProcessOrder#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -506,11 +504,6 @@
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#addOrder#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#parseOrderToStringArray#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#assignDriver#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#assignDate#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#generateLog#0;class#ProcessOrder#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -579,11 +572,6 @@
           <caret line="7" column="10" lean-forward="true" selection-start-line="7" selection-start-column="10" selection-end-line="7" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#addOrder#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#parseOrderToStringArray#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#assignDriver#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#assignDate#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#generateLog#0;class#ProcessOrder#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -635,11 +623,6 @@
           <caret line="83" column="26" lean-forward="false" selection-start-line="83" selection-start-column="26" selection-end-line="83" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#addOrder#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#parseOrderToStringArray#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#assignDriver#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#assignDate#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#generateLog#0;class#ProcessOrder#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -691,11 +674,6 @@
           <caret line="83" column="26" lean-forward="false" selection-start-line="83" selection-start-column="26" selection-end-line="83" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#addOrder#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#parseOrderToStringArray#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#assignDriver#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#assignDate#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#generateLog#0;class#ProcessOrder#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -762,11 +740,6 @@
           <caret line="6" column="26" lean-forward="false" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#addOrder#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#parseOrderToStringArray#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#assignDriver#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#assignDate#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#generateLog#0;class#ProcessOrder#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -828,11 +801,6 @@
           <caret line="6" column="26" lean-forward="false" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#addOrder#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#parseOrderToStringArray#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#assignDriver#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#assignDate#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#generateLog#0;class#ProcessOrder#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -873,11 +841,6 @@
           <caret line="6" column="26" lean-forward="false" selection-start-line="6" selection-start-column="26" selection-end-line="6" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#addOrder#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#parseOrderToStringArray#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#assignDriver#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#assignDate#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#generateLog#0;class#ProcessOrder#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -954,9 +917,39 @@
         <state />
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Order.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="702">
+          <caret line="87" column="1" lean-forward="false" selection-start-line="87" selection-start-column="1" selection-end-line="87" selection-end-column="1" />
+          <folding>
+            <element signature="method#Order#0;class#Order#0" expanded="false" />
+            <element signature="method#getNumber#0;class#Order#0" expanded="false" />
+            <element signature="method#getPizza#0;class#Order#0" expanded="false" />
+            <element signature="method#getAdress#0;class#Order#0" expanded="false" />
+            <element signature="method#getPrice#0;class#Order#0" expanded="false" />
+            <element signature="method#getIsFinished#0;class#Order#0" expanded="false" />
+            <element signature="method#getDriver#0;class#Order#0" expanded="false" />
+            <element signature="method#setDriver#0;class#Order#0" expanded="false" />
+            <element signature="method#getDateOfOrder#0;class#Order#0" expanded="false" />
+            <element signature="method#setDateOfOrder#0;class#Order#0" expanded="false" />
+            <element signature="method#setIsFinished#0;class#Order#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ProcessOrder.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/MainWindow.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
+        <state relative-caret-position="18">
           <caret line="35" column="16" lean-forward="false" selection-start-line="35" selection-start-column="16" selection-end-line="35" selection-end-column="16" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -969,7 +962,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/PizzaSelector.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="815">
+        <state relative-caret-position="617">
           <caret line="114" column="90" lean-forward="false" selection-start-line="114" selection-start-column="90" selection-end-line="114" selection-end-column="90" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -993,41 +986,6 @@
       </provider>
       <provider selected="true" editor-type-id="ui-designer">
         <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Order.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="702">
-          <caret line="87" column="1" lean-forward="false" selection-start-line="87" selection-start-column="1" selection-end-line="87" selection-end-column="1" />
-          <folding>
-            <element signature="method#Order#0;class#Order#0" expanded="false" />
-            <element signature="method#getNumber#0;class#Order#0" expanded="false" />
-            <element signature="method#getPizza#0;class#Order#0" expanded="false" />
-            <element signature="method#getAdress#0;class#Order#0" expanded="false" />
-            <element signature="method#getPrice#0;class#Order#0" expanded="false" />
-            <element signature="method#getIsFinished#0;class#Order#0" expanded="false" />
-            <element signature="method#getDriver#0;class#Order#0" expanded="false" />
-            <element signature="method#setDriver#0;class#Order#0" expanded="false" />
-            <element signature="method#getDateOfOrder#0;class#Order#0" expanded="false" />
-            <element signature="method#setDateOfOrder#0;class#Order#0" expanded="false" />
-            <element signature="method#setIsFinished#0;class#Order#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ProcessOrder.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="432">
-          <caret line="35" column="44" lean-forward="false" selection-start-line="35" selection-start-column="44" selection-end-line="35" selection-end-column="44" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#addOrder#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#parseOrderToStringArray#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#assignDriver#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#assignDate#0;class#ProcessOrder#0" expanded="false" />
-            <element signature="method#generateLog#0;class#ProcessOrder#0" expanded="false" />
-          </folding>
-        </state>
       </provider>
     </entry>
   </component>
