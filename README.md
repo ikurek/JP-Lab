@@ -4,7 +4,7 @@ Zadania na laboratoria z języków programowania. Projekty robione pod IntelliJ 
 ###17.10.16 / 4,5
 Obliczenie liczby płaszczyzn powstałych poprzez przecięcia kół. Dane są środki okręgów i ich promień.
 
-###14.11.16
+###14.11.16 / 5,0
 Program okienkowy wykonujący zamówienia na dostarczenie pizzy. Użytkownik ma definiować typ pizzy, liczbę sztuk, godzinę dostarczenia i adres docelowy. 
 Program realizuje dostarczenie zlecenia, na konkretny region przypada dany dostawca.
 Program przydziela dostawcy zamówienie, oraz musi rozliczać (spóźnienie = 10% rabatu) 
