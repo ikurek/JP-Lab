@@ -6,6 +6,8 @@ import java.util.List;
  * Created by igor on 09.12.16.
  */
 
+//Kopia klasy GObject z oryginalnego kodu
+
 abstract public class GToy {
     public AffineTransform t1;
 

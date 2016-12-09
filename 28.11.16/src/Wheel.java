@@ -71,8 +71,11 @@ public class Wheel extends GObject {
         int dx0 = g2d.getDeviceConfiguration().getBounds().width / 2;
         int dy0 = -20;
         int minxy = (dx0 >= -dy0) ? -dy0 : dx0;
-        AffineTransform saveAT = g2d.getTransform();
 
+        //Machnijmy transformację affiniczną
+        //1 na 1, 1 na -1
+        //obrót o podany kąt
+        AffineTransform saveAT = g2d.getTransform();
         customAffineTransform = new AffineTransform();
         customAffineTransform.scale(1, -1);
         customAffineTransform.translate(dx0, dy0);
@@ -80,6 +83,7 @@ public class Wheel extends GObject {
         g2d.setTransform(customAffineTransform);
 
 
+        //Dodanie kóleczek do listy
         WheelData w = new WheelData(0, -(minxy * 3) - 10, 0, -minxy);
         wheel.add(w);
 
@@ -93,6 +97,7 @@ public class Wheel extends GObject {
         wheel.add(w3);
 
 
+        //Rysowanie kółeczek
         for (int i = 0; i < wheel.size(); i++) {
             g2d.drawLine(wheel.get(i).getX1(), wheel.get(i).getY1(), wheel.get(i).getX2(), wheel.get(i).getY2());
         }
@@ -100,6 +105,8 @@ public class Wheel extends GObject {
         g2d.drawOval(-minxy, -minxy, minxy * 2, minxy * 2);
 
 
+        //Zmiana poprzedniej transformacji na tą zapisaną w zmiennej saveAT
+        //TODO: Po co?
         g2d.setTransform(saveAT);
 
     }

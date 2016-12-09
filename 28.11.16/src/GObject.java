@@ -5,6 +5,8 @@ import java.awt.geom.AffineTransform;
  * Created by igor on 09.12.16.
  */
 
+//Klasa byla oryginalnie w kodzie z zajęć
+    //Ja trochę ją zmodyfikowałem
 abstract public class GObject {
     public AffineTransform customAffineTransform;
 

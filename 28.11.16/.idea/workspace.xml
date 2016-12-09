@@ -2,34 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0c655d3f-5c45-45b1-9f11-4dd1b9b305d0" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GObject.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/GToy.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MainFrame.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/MyPanel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Toy.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/ToyData.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Wheel.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/WheelData.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/28.11.16/DrawingPanel.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/28.11.16/Main$1.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/28.11.16/Main.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/28.11.16/MainWindow.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/28.11.16/com/intellij/uiDesigner/core/AbstractLayout.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/28.11.16/com/intellij/uiDesigner/core/DimensionInfo.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/28.11.16/com/intellij/uiDesigner/core/GridConstraints.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/28.11.16/com/intellij/uiDesigner/core/GridLayoutManager.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/28.11.16/com/intellij/uiDesigner/core/HorizontalInfo.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/28.11.16/com/intellij/uiDesigner/core/LayoutState.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/28.11.16/com/intellij/uiDesigner/core/Spacer.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/28.11.16/com/intellij/uiDesigner/core/SupportCode$TextWithMnemonic.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/28.11.16/com/intellij/uiDesigner/core/SupportCode.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/28.11.16/com/intellij/uiDesigner/core/Util.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/out/production/28.11.16/com/intellij/uiDesigner/core/VerticalInfo.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/DrawingPanel.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Main.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/MainWindow.form" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/MainWindow.java" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GObject.java" afterPath="$PROJECT_DIR$/src/GObject.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/GToy.java" afterPath="$PROJECT_DIR$/src/GToy.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Wheel.java" afterPath="$PROJECT_DIR$/src/Wheel.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -83,11 +58,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GObject.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="GObject.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/GObject.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="144">
-              <caret line="8" column="48" lean-forward="false" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
+              <caret line="8" column="33" lean-forward="false" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -95,11 +70,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Wheel.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Wheel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Wheel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1422">
-              <caret line="79" column="48" lean-forward="true" selection-start-line="79" selection-start-column="48" selection-end-line="79" selection-end-column="48" />
+            <state relative-caret-position="380">
+              <caret line="108" column="22" lean-forward="false" selection-start-line="108" selection-start-column="22" selection-end-line="108" selection-end-column="22" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#361#372#0" expanded="true" />
@@ -156,9 +131,11 @@
       <file leaf-file-name="GToy.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/GToy.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="324">
-              <caret line="20" column="1" lean-forward="false" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-              <folding />
+            <state relative-caret-position="198">
+              <caret line="11" column="29" lean-forward="false" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -213,11 +190,11 @@
         <option value="$PROJECT_DIR$/src/WheelData.java" />
         <option value="$PROJECT_DIR$/src/Toy.java" />
         <option value="$PROJECT_DIR$/src/ToyData.java" />
-        <option value="$PROJECT_DIR$/src/GToy.java" />
         <option value="$PROJECT_DIR$/src/MainFrame.java" />
         <option value="$PROJECT_DIR$/src/MyPanel.java" />
-        <option value="$PROJECT_DIR$/src/GObject.java" />
         <option value="$PROJECT_DIR$/src/Wheel.java" />
+        <option value="$PROJECT_DIR$/src/GToy.java" />
+        <option value="$PROJECT_DIR$/src/GObject.java" />
       </list>
     </option>
   </component>
@@ -430,12 +407,12 @@
       <workItem from="1480439447315" duration="16000" />
       <workItem from="1481218454417" duration="1656000" />
       <workItem from="1481240541248" duration="7741000" />
-      <workItem from="1481314932213" duration="4892000" />
+      <workItem from="1481314932213" duration="5522000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17268000" />
+    <option name="totallyTimeSpent" value="17898000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="27" width="1920" height="1053" extended-state="6" />
@@ -673,14 +650,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GToy.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="324">
-          <caret line="20" column="1" lean-forward="false" selection-start-line="20" selection-start-column="1" selection-end-line="20" selection-end-column="1" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MainFrame.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="162">
@@ -736,20 +705,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/GObject.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="8" column="48" lean-forward="false" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Wheel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1422">
-          <caret line="79" column="48" lean-forward="true" selection-start-line="79" selection-start-column="48" selection-end-line="79" selection-end-column="48" />
+        <state relative-caret-position="380">
+          <caret line="108" column="22" lean-forward="false" selection-start-line="108" selection-start-column="22" selection-end-line="108" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#361#372#0" expanded="true" />
@@ -757,6 +716,26 @@
             <element signature="e#499#500#0" expanded="true" />
             <element signature="e#1524#1525#0" expanded="true" />
             <element signature="e#1547#1548#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GToy.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="198">
+          <caret line="11" column="29" lean-forward="false" selection-start-line="11" selection-start-column="29" selection-end-line="11" selection-end-column="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/GObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="8" column="33" lean-forward="false" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
