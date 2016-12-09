@@ -6,15 +6,17 @@ import java.awt.*;
  */
 public class DrawingPanel extends JPanel {
 
-    public DrawingPanel() {
+    Integer test;
 
+    public DrawingPanel() {
+        setSize(1280, 720);
     }
 
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
 
-        g.drawArc(0,0,10,10,30,30);
+        g.drawLine(0,0,1280, 720);
     }
 
     public void rotate(Graphics2D g) {
