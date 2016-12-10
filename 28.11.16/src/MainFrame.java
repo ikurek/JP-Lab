@@ -1,11 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * Created by igor on 28.11.16.
- */
 
-@SuppressWarnings("ALL")
 class MainFrame extends JFrame {
 
     //TODO: Po co to jest?
@@ -45,8 +41,8 @@ class MainFrame extends JFrame {
             public void run() {
                 while (true) {
                     for (int i = 0; i < 99; i++) {
-                        if (MainFrame.customPanel != null && MainFrame.customPanel.circleGraphics != null) {
-                            MainFrame.customPanel.circleGraphics.rotateToLeft();
+                        if (MainFrame.customPanel != null && MainFrame.customPanel.grabberGraphics != null) {
+                            MainFrame.customPanel.grabberGraphics.rotateToLeft();
                             MainFrame.customPanel.repaint();
                         }
 
@@ -57,8 +53,8 @@ class MainFrame extends JFrame {
                         }
                     }
                     for (int i = 0; i < 99; i++) {
-                        if (MainFrame.customPanel != null && MainFrame.customPanel.circleGraphics != null) {
-                            MainFrame.customPanel.circleGraphics.rotateToRight();
+                        if (MainFrame.customPanel != null && MainFrame.customPanel.grabberGraphics != null) {
+                            MainFrame.customPanel.grabberGraphics.rotateToRight();
                             MainFrame.customPanel.repaint();
                         }
 
@@ -81,9 +77,9 @@ class MainFrame extends JFrame {
 
                 while (true) {
 
-                    if (MainFrame.customPanel != null && MainFrame.customPanel.circleGraphics != null) {
-                        MainFrame.customPanel.circleGraphics.grab();
-                        MainFrame.customPanel.forkGraphics.MoveToyStart();
+                    if (MainFrame.customPanel != null && MainFrame.customPanel.grabberGraphics != null) {
+                        MainFrame.customPanel.grabberGraphics.grab();
+                        MainFrame.customPanel.circleGraphics.MoveCircleStart();
                     }
                     try {
                         Thread.currentThread().sleep(100);

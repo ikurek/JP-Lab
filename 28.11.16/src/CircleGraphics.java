@@ -1,26 +1,22 @@
 import java.awt.*;
 import java.awt.geom.AffineTransform;
+import java.util.List;
 
-/**
- * Created by igor on 09.12.16.
- */
 
-//Klasa byla oryginalnie w kodzie z zajęć
-//Ja trochę ją zmodyfikowałem
-@SuppressWarnings("ALL")
+//Kopia klasy GObject z oryginalnego kodu
+//Zbudowana na potrzeby obsługi kółek
+
 abstract public class CircleGraphics {
-    AffineTransform customAffineTransform;
 
-    abstract public void drawMe(Graphics g);
+    AffineTransform circleAffineTransform;
 
-    abstract void rotateToLeft();
+    abstract public void drawCircle(Graphics a);
 
-    abstract void rotateToRight();
+    abstract public void MoveCircle(List<CircleObject> circle);
 
-    abstract void armDown();
+    abstract public void MoveCircleStart();
 
-    abstract void armUp();
+    abstract void rotate();
 
-    abstract void grab();
 
 }

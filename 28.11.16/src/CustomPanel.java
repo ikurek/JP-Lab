@@ -1,24 +1,21 @@
 import javax.swing.*;
 import java.awt.*;
 
-/**
- * Created by igor on 09.12.16.
- */
 
-@SuppressWarnings("ALL")
 class CustomPanel extends JPanel {
 
     private static final long serialVersionUID = 1L;
-    public final ForkGraphics forkGraphics;
     public final CircleGraphics circleGraphics;
+    public final GrabberGraphics grabberGraphics;
 
 
-    //Pusty konstruktor
+    //konstruktor panelu
+    //Tworzy nowe obiekty klasy circle i fork
     public CustomPanel() {
         super();
         initialize();
+        grabberGraphics = new Grabber();
         circleGraphics = new Circle();
-        forkGraphics = new Fork();
 
     }
 
@@ -34,11 +31,11 @@ class CustomPanel extends JPanel {
     @Override
     protected void paintComponent(Graphics arg0) {
         super.paintComponent(arg0);
-        if (circleGraphics != null) {
-            circleGraphics.drawMe(arg0);
+        if (grabberGraphics != null) {
+            grabberGraphics.drawMe(arg0);
         }
-        if (forkGraphics != null) {
-            forkGraphics.drawToy(arg0);
+        if (circleGraphics != null) {
+            circleGraphics.drawCircle(arg0);
         }
     }
 
