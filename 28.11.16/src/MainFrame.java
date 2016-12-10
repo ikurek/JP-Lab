@@ -5,19 +5,20 @@ import java.awt.*;
  * Created by igor on 28.11.16.
  */
 
-public class MainFrame extends JFrame {
+@SuppressWarnings("ALL")
+class MainFrame extends JFrame {
 
     //TODO: Po co to jest?
     private static final long serialVersionUID = 1L;
     //Publiczne definicje wątków żeby można było je zatrzymać z metod wewnątrz funkcji
-    public static Thread loopAnimationThread;
-    public static Thread grabAnimationThread;
-    static CustomPanel customPanel = null;
+    private static Thread loopAnimationThread;
+    private static Thread grabAnimationThread;
+    private static CustomPanel customPanel = null;
     private JPanel jContentPane = null;
 
 
     //Pusty konstruktor dla okna
-    public MainFrame() {
+    private MainFrame() {
         super();
         initialize();
         setLocationRelativeTo(null);
@@ -52,6 +53,7 @@ public class MainFrame extends JFrame {
                         try {
                             Thread.currentThread().sleep(100);
                         } catch (Exception e) {
+                            System.out.print(e);
                         }
                     }
                     for (int i = 0; i < 99; i++) {
@@ -63,6 +65,8 @@ public class MainFrame extends JFrame {
                         try {
                             Thread.currentThread().sleep(100);
                         } catch (Exception e) {
+
+                            System.out.print(e);
                         }
                     }
                 }
@@ -84,6 +88,8 @@ public class MainFrame extends JFrame {
                     try {
                         Thread.currentThread().sleep(100);
                     } catch (Exception e) {
+
+                        System.out.print(e);
                     }
 
                 }

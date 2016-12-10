@@ -9,8 +9,9 @@ import java.util.List;
 //Kopia klasy GObject z oryginalnego kodu
 //Zbudowana na potrzeby obsługi chwytaka
 
+@SuppressWarnings("ALL")
 abstract public class ForkGraphics {
-    public AffineTransform t1;
+    AffineTransform t1;
 
     abstract public void drawToy(Graphics a);
 

@@ -8,10 +8,11 @@ import java.util.List;
  */
 
 
+@SuppressWarnings("ALL")
 public class Fork extends ForkGraphics {
 
-    public double alpha = Math.PI / 2;
-    List<ForkObject> toy = new ArrayList<ForkObject>();
+    private double alpha = Math.PI / 2;
+    private final List<ForkObject> toy = new ArrayList<>();
 
     public void rotate() {
         alpha = Circle.getAlpha();
@@ -59,8 +60,8 @@ public class Fork extends ForkGraphics {
         ForkObject o6 = new ForkObject(-minxy - 300, -minxy - 300, minxy * 2, minxy * 2);
         toy.add(o6);
 
-        for (int i = 0; i < toy.size(); i++) {
-            g2d.drawOval(toy.get(i).getX(), toy.get(i).getY(), toy.get(i).getWidth(), toy.get(i).getHeight());
+        for (ForkObject aToy : toy) {
+            g2d.drawOval(aToy.getX(), aToy.getY(), aToy.getWidth(), aToy.getHeight());
 
         }
 

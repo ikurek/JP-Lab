@@ -7,12 +7,13 @@ import java.util.List;
  * Created by igor on 09.12.16.
  */
 
+@SuppressWarnings("ALL")
 public class Circle extends CircleGraphics {
 
     //Zmienne przehowujące kąt obrotu chwytaka
     //Oraz listę wszystkich kółek do narysowania
-    public static double alpha = Math.PI / 2;
-    List<CircleObject> wheel = new ArrayList<>();
+    private static double alpha = Math.PI / 2;
+    private final List<CircleObject> wheel = new ArrayList<>();
 
     //Zwraca kąt pod jakim aktualnie znajduje się chwytak
     public static double getAlpha() {
@@ -33,7 +34,7 @@ public class Circle extends CircleGraphics {
         }
     }
 
-    public void armUp() {
+    void armUp() {
 
         wheel.get(0).setY1(wheel.get(0).getY1() - 1);
 
@@ -98,8 +99,8 @@ public class Circle extends CircleGraphics {
 
 
         //Rysowanie kółeczek
-        for (int i = 0; i < wheel.size(); i++) {
-            g2d.drawLine(wheel.get(i).getX1(), wheel.get(i).getY1(), wheel.get(i).getX2(), wheel.get(i).getY2());
+        for (CircleObject aWheel : wheel) {
+            g2d.drawLine(aWheel.getX1(), aWheel.getY1(), aWheel.getX2(), aWheel.getY2());
         }
 
         g2d.drawOval(-minxy, -minxy, minxy * 2, minxy * 2);

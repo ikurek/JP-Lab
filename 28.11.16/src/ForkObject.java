@@ -2,7 +2,8 @@
  * Created by igor on 09.12.16.
  */
 
-public class ForkObject {
+@SuppressWarnings("ALL")
+class ForkObject {
     private int x;
     private int y;
     private int width;

@@ -2,7 +2,8 @@
  * Created by igor on 09.12.16.
  */
 
-public class CircleObject {
+@SuppressWarnings("ALL")
+class CircleObject {
     private int x1, y1, x2, y2;
 
     public CircleObject(int x1, int y1, int x2, int y2) {

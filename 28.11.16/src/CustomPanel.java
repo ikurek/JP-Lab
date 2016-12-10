@@ -5,11 +5,12 @@ import java.awt.*;
  * Created by igor on 09.12.16.
  */
 
-public class CustomPanel extends JPanel {
+@SuppressWarnings("ALL")
+class CustomPanel extends JPanel {
 
     private static final long serialVersionUID = 1L;
-    public ForkGraphics forkGraphics;
-    public CircleGraphics circleGraphics;
+    public final ForkGraphics forkGraphics;
+    public final CircleGraphics circleGraphics;
 
 
     //Pusty konstruktor
