@@ -2,13 +2,13 @@
  * Created by igor on 09.12.16.
  */
 
-public class ToyData {
+public class ForkObject {
     private int x;
     private int y;
     private int width;
     private int height;
 
-    public ToyData(int x, int y, int width, int height) {
+    public ForkObject(int x, int y, int width, int height) {
         this.x = x;
         this.y = y;
         this.width = width;

@@ -7,12 +7,12 @@ import java.util.List;
  * Created by igor on 09.12.16.
  */
 
-public class Wheel extends GObject {
+public class Circle extends CircleGraphics {
 
     //Zmienne przehowujące kąt obrotu chwytaka
     //Oraz listę wszystkich kółek do narysowania
     public static double alpha = 0;
-    List<WheelData> wheel = new ArrayList<WheelData>();
+    List<CircleObject> wheel = new ArrayList<>();
 
     //Zwraca kąt pod jakim aktualnie znajduje się chwytak
     public static double getAlpha() {
@@ -21,9 +21,9 @@ public class Wheel extends GObject {
 
     //Funkcje modyfikujące długość ramienia
     //armDown wydłuza, armUp Skraca
+    //TODO: Pewnie da się to zrobić sensowniej.
     public void armDown() {
 
-        //TODO: Pewnie da się to zrobić sensowniej.
         wheel.get(0).setY1(wheel.get(0).getY1() - 1);
 
         for (int i = 1; i < wheel.size(); i++) {
@@ -32,10 +32,10 @@ public class Wheel extends GObject {
 
         }
     }
+
     public void armUp() {
 
-        //TODO: Pewnie da się to zrobić sensowniej.
-        wheel.get(0).setY1(wheel.get(0).getY1() + 1);
+        wheel.get(0).setY1(wheel.get(0).getY1() - 1);
 
         for (int i = 1; i < wheel.size(); i++) {
             wheel.get(i).setY1(wheel.get(i).getY1() + 1);
@@ -84,16 +84,16 @@ public class Wheel extends GObject {
 
 
         //Dodanie kóleczek do listy
-        WheelData w = new WheelData(0, -(minxy * 3) - 10, 0, -minxy);
+        CircleObject w = new CircleObject(0, -(minxy * 3) - 10, 0, -minxy);
         wheel.add(w);
 
-        WheelData w1 = new WheelData(-10, (-minxy * 3) - 10, -10, -minxy * 3);
+        CircleObject w1 = new CircleObject(-10, (-minxy * 3) - 10, -10, -minxy * 3);
         wheel.add(w1);
 
-        WheelData w2 = new WheelData(10, (-minxy * 3) - 10, 10, -minxy * 3);
+        CircleObject w2 = new CircleObject(10, (-minxy * 3) - 10, 10, -minxy * 3);
         wheel.add(w2);
 
-        WheelData w3 = new WheelData(10, -minxy * 3, -10, -minxy * 3);
+        CircleObject w3 = new CircleObject(10, -minxy * 3, -10, -minxy * 3);
         wheel.add(w3);
 
 
@@ -106,7 +106,7 @@ public class Wheel extends GObject {
 
 
         //Zmiana poprzedniej transformacji na tą zapisaną w zmiennej saveAT
-        //TODO: Po co?
+        //TODO: Było w kodzie, ale po co to właściwie jest?
         g2d.setTransform(saveAT);
 
     }

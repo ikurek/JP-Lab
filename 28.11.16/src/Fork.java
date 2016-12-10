@@ -8,16 +8,16 @@ import java.util.List;
  */
 
 
-public class Toy extends GToy {
+public class Fork extends ForkGraphics {
 
     public double alpha = Math.PI / 2;
-    List<ToyData> toy = new ArrayList<ToyData>();
+    List<ForkObject> toy = new ArrayList<ForkObject>();
 
     public void rotate() {
-        alpha = Wheel.getAlpha();
+        alpha = Circle.getAlpha();
     }
 
-    public void MoveToy(List<ToyData> toy) {
+    public void MoveToy(List<ForkObject> toy) {
         toy.get(1).setX(toy.get(1).getX() + 1);
     }
 
@@ -38,25 +38,25 @@ public class Toy extends GToy {
         g2d.setTransform(t1);
 
 
-        ToyData o = new ToyData(-minxy - 300, -minxy + 300, minxy * 2, minxy * 2);
+        ForkObject o = new ForkObject(-minxy - 300, -minxy + 300, minxy * 2, minxy * 2);
         toy.add(o);
 
-        ToyData o1 = new ToyData(-minxy - 300, -minxy + 200, minxy * 2, minxy * 2);
+        ForkObject o1 = new ForkObject(-minxy - 300, -minxy + 200, minxy * 2, minxy * 2);
         toy.add(o1);
 
-        ToyData o2 = new ToyData(-minxy - 300, -minxy + 100, minxy * 2, minxy * 2);
+        ForkObject o2 = new ForkObject(-minxy - 300, -minxy + 100, minxy * 2, minxy * 2);
         toy.add(o2);
 
-        ToyData o3 = new ToyData(-minxy - 300, -minxy, minxy * 2, minxy * 2);
+        ForkObject o3 = new ForkObject(-minxy - 300, -minxy, minxy * 2, minxy * 2);
         toy.add(o3);
 
-        ToyData o4 = new ToyData(-minxy - 300, -minxy - 100, minxy * 2, minxy * 2);
+        ForkObject o4 = new ForkObject(-minxy - 300, -minxy - 100, minxy * 2, minxy * 2);
         toy.add(o4);
 
-        ToyData o5 = new ToyData(-minxy - 300, -minxy - 200, minxy * 2, minxy * 2);
+        ForkObject o5 = new ForkObject(-minxy - 300, -minxy - 200, minxy * 2, minxy * 2);
         toy.add(o5);
 
-        ToyData o6 = new ToyData(-minxy - 300, -minxy - 300, minxy * 2, minxy * 2);
+        ForkObject o6 = new ForkObject(-minxy - 300, -minxy - 300, minxy * 2, minxy * 2);
         toy.add(o6);
 
         for (int i = 0; i < toy.size(); i++) {

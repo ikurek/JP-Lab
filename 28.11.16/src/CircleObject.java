@@ -2,10 +2,10 @@
  * Created by igor on 09.12.16.
  */
 
-public class WheelData {
+public class CircleObject {
     private int x1, y1, x2, y2;
 
-    public WheelData(int x1, int y1, int x2, int y2) {
+    public CircleObject(int x1, int y1, int x2, int y2) {
         this.x1 = x1;
         this.y1 = y1;
         this.x2 = x2;

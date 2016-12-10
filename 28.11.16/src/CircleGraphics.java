@@ -6,8 +6,8 @@ import java.awt.geom.AffineTransform;
  */
 
 //Klasa byla oryginalnie w kodzie z zajęć
-    //Ja trochę ją zmodyfikowałem
-abstract public class GObject {
+//Ja trochę ją zmodyfikowałem
+abstract public class CircleGraphics {
     public AffineTransform customAffineTransform;
 
     abstract public void drawMe(Graphics g);

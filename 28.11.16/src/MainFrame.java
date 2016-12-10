@@ -9,7 +9,10 @@ public class MainFrame extends JFrame {
 
     //TODO: Po co to jest?
     private static final long serialVersionUID = 1L;
-    static MyPanel mp = null;
+    //Publiczne definicje wątków żeby można było je zatrzymać z metod wewnątrz funkcji
+    public static Thread loopAnimationThread;
+    public static Thread grabAnimationThread;
+    static CustomPanel customPanel = null;
     private JPanel jContentPane = null;
 
 
@@ -17,6 +20,7 @@ public class MainFrame extends JFrame {
     public MainFrame() {
         super();
         initialize();
+        setLocationRelativeTo(null);
 
     }
 
@@ -30,17 +34,19 @@ public class MainFrame extends JFrame {
             public void run() {
                 MainFrame thisClass = new MainFrame();
                 thisClass.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                thisClass.setLocationRelativeTo(null);
+                thisClass.setSize(1920, 900);
                 thisClass.setVisible(true);
             }
         });
 
-        Thread loopAnimationThread = new Thread(new Runnable() {
+        loopAnimationThread = new Thread(new Runnable() {
             public void run() {
                 while (true) {
-                    for (int i = 0; i < 100; i++) {
-                        if (MainFrame.mp != null && MainFrame.mp.g != null) {
-                            MainFrame.mp.g.rotateToLeft();
-                            MainFrame.mp.repaint();
+                    for (int i = 0; i < 99; i++) {
+                        if (MainFrame.customPanel != null && MainFrame.customPanel.circleGraphics != null) {
+                            MainFrame.customPanel.circleGraphics.rotateToLeft();
+                            MainFrame.customPanel.repaint();
                         }
 
                         try {
@@ -49,9 +55,9 @@ public class MainFrame extends JFrame {
                         }
                     }
                     for (int i = 0; i < 99; i++) {
-                        if (MainFrame.mp != null && MainFrame.mp.g != null) {
-                            MainFrame.mp.g.rotateToRight();
-                            MainFrame.mp.repaint();
+                        if (MainFrame.customPanel != null && MainFrame.customPanel.circleGraphics != null) {
+                            MainFrame.customPanel.circleGraphics.rotateToRight();
+                            MainFrame.customPanel.repaint();
                         }
 
                         try {
@@ -63,18 +69,17 @@ public class MainFrame extends JFrame {
 
             }
         });
-        loopAnimationThread.start();
 
 
-        Thread grabAnimationThread = new Thread(new Runnable() {
+        grabAnimationThread = new Thread(new Runnable() {
             public void run() {
 
 
                 while (true) {
 
-                    if (MainFrame.mp != null && MainFrame.mp.g != null) {
-                        MainFrame.mp.g.grab();
-                        MainFrame.mp.a.MoveToyStart();
+                    if (MainFrame.customPanel != null && MainFrame.customPanel.circleGraphics != null) {
+                        MainFrame.customPanel.circleGraphics.grab();
+                        MainFrame.customPanel.forkGraphics.MoveToyStart();
                     }
                     try {
                         Thread.currentThread().sleep(100);
@@ -86,25 +91,29 @@ public class MainFrame extends JFrame {
 
             }
         });
-        grabAnimationThread.start();
+
+        //Odpal oba wątki odpowiedzialne za animację elementów
+        loopAnimationThread.start();
+        //     grabAnimationThread.start();
 
     }
 
-    //inicjalizacja panelu mp
+    //inicjalizacja panelu customPanel
     //Zwraca obiekt typu CustomPanel
-    private MyPanel getMp() {
-        if (mp == null) {
-            mp = new MyPanel();
-            mp.setLayout(new GridBagLayout());
+    private CustomPanel getMp() {
+        if (customPanel == null) {
+            customPanel = new CustomPanel();
+            customPanel.setLayout(new GridBagLayout());
         }
-        return mp;
+        return customPanel;
     }
 
     //konfiguracja Głównego okna
     private void initialize() {
-        this.setSize(668, 402);
+        this.setSize(1920, 900);
         this.setContentPane(getJContentPane());
-        this.setTitle("JFrame");
+        this.setTitle("Gra 1.1");
+        this.setLocationRelativeTo(null);
     }
 
     //Konfiguracja JPanel

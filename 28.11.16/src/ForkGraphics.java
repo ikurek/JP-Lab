@@ -7,13 +7,14 @@ import java.util.List;
  */
 
 //Kopia klasy GObject z oryginalnego kodu
+//Zbudowana na potrzeby obsługi chwytaka
 
-abstract public class GToy {
+abstract public class ForkGraphics {
     public AffineTransform t1;
 
     abstract public void drawToy(Graphics a);
 
-    abstract public void MoveToy(List<ToyData> toy);
+    abstract public void MoveToy(List<ForkObject> toy);
 
     abstract public void MoveToyStart();
 
