@@ -11,7 +11,7 @@ public class Circle extends CircleGraphics {
 
     //Zmienne przehowujące kąt obrotu chwytaka
     //Oraz listę wszystkich kółek do narysowania
-    public static double alpha = 0;
+    public static double alpha = Math.PI / 2;
     List<CircleObject> wheel = new ArrayList<>();
 
     //Zwraca kąt pod jakim aktualnie znajduje się chwytak
