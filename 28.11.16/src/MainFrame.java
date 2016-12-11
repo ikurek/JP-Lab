@@ -1,5 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 
 class MainFrame extends JFrame {
@@ -94,9 +96,8 @@ class MainFrame extends JFrame {
             }
         });
 
-        //Odpal oba wątki odpowiedzialne za animację elementów
+        //Odpal wątek odpowiedzialny za animację chwytaka
         loopAnimationThread.start();
-        //     grabAnimationThread.start();
 
     }
 
@@ -116,6 +117,34 @@ class MainFrame extends JFrame {
         this.setContentPane(getJContentPane());
         this.setTitle("Gra 1.1");
         this.setLocationRelativeTo(null);
+        this.addMouseListener(new MouseListener() {
+            @Override
+            public void mouseClicked(MouseEvent mouseEvent) {
+                loopAnimationThread.stop();
+                grabAnimationThread.start();
+
+            }
+
+            @Override
+            public void mousePressed(MouseEvent mouseEvent) {
+
+            }
+
+            @Override
+            public void mouseReleased(MouseEvent mouseEvent) {
+
+            }
+
+            @Override
+            public void mouseEntered(MouseEvent mouseEvent) {
+
+            }
+
+            @Override
+            public void mouseExited(MouseEvent mouseEvent) {
+
+            }
+        });
     }
 
     //Konfiguracja JPanel

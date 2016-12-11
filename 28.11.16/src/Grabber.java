@@ -18,14 +18,13 @@ public class Grabber extends GrabberGraphics {
 
     //Funkcje modyfikujące długość ramienia
     //armDown wydłuza, armUp Skraca
-    //TODO: Pewnie da się to zrobić sensowniej.
     public void armDown() {
 
         grabberObjectArrayList.get(0).setY1(grabberObjectArrayList.get(0).getY1() - 1);
 
-        for (int i = 1; i < grabberObjectArrayList.size(); i++) {
-            grabberObjectArrayList.get(i).setY1(grabberObjectArrayList.get(i).getY1() - 1);
-            grabberObjectArrayList.get(i).setY2(grabberObjectArrayList.get(i).getY2() - 1);
+        for(GrabberObject grabberObject : grabberObjectArrayList) {
+            grabberObject.setY1(grabberObject.getY1() - 1);
+            grabberObject.setY2(grabberObject.getY2() - 1);
 
         }
     }
@@ -34,9 +33,9 @@ public class Grabber extends GrabberGraphics {
 
         grabberObjectArrayList.get(0).setY1(grabberObjectArrayList.get(0).getY1() - 1);
 
-        for (int i = 1; i < grabberObjectArrayList.size(); i++) {
-            grabberObjectArrayList.get(i).setY1(grabberObjectArrayList.get(i).getY1() + 1);
-            grabberObjectArrayList.get(i).setY2(grabberObjectArrayList.get(i).getY2() + 1);
+        for(GrabberObject grabberObject : grabberObjectArrayList) {
+            grabberObject.setY1(grabberObject.getY1() + 1);
+            grabberObject.setY2(grabberObject.getY2() + 1);
 
         }
     }
@@ -57,6 +56,7 @@ public class Grabber extends GrabberGraphics {
     }
 
     public void grab() {
+        armDown();
         armUp();
     }
 
