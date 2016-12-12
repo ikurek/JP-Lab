@@ -9,7 +9,7 @@ public class Grabber extends GrabberGraphics {
     //Zmienne przehowujące kąt obrotu chwytaka
     //Oraz listę prostych z których składa się trójząb
     private static double alpha = Math.PI / 2;
-    private final List<GrabberObject> grabberObjectArrayList = new ArrayList<>();
+    public List<GrabberObject> grabberObjectArrayList = new ArrayList<>();
 
     //Zwraca kąt pod jakim aktualnie znajduje się chwytak
     public static double getAlpha() {
@@ -17,7 +17,7 @@ public class Grabber extends GrabberGraphics {
     }
 
     //Funkcje modyfikujące długość ramienia
-    //armDown wydłuza, armUp Skraca
+    //armDown wydłuża, armUp Skraca
     public void armDown() {
 
         grabberObjectArrayList.get(0).setY1(grabberObjectArrayList.get(0).getY1() - 1);
@@ -31,7 +31,7 @@ public class Grabber extends GrabberGraphics {
 
     void armUp() {
 
-        grabberObjectArrayList.get(0).setY1(grabberObjectArrayList.get(0).getY1() - 1);
+     grabberObjectArrayList.get(0).setY1(grabberObjectArrayList.get(0).getY1() - 1);
 
         for(GrabberObject grabberObject : grabberObjectArrayList) {
             grabberObject.setY1(grabberObject.getY1() + 1);
@@ -80,7 +80,7 @@ public class Grabber extends GrabberGraphics {
         g2d.setTransform(grabberAffineTransform);
 
 
-        //Dodanie kóleczek do listy
+        //Dodanie elementow chwytaka
         GrabberObject forkPart0 = new GrabberObject(0, -(minxy * 3) - 10, 0, -minxy);
         grabberObjectArrayList.add(forkPart0);
 

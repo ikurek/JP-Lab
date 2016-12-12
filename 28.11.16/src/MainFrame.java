@@ -87,7 +87,7 @@ class MainFrame extends JFrame {
                         Thread.currentThread().sleep(100);
                     } catch (Exception e) {
 
-                        System.out.print(e);
+                        e.printStackTrace();
                     }
 
                 }
@@ -98,6 +98,12 @@ class MainFrame extends JFrame {
 
         //Odpal wątek odpowiedzialny za animację chwytaka
         loopAnimationThread.start();
+        grabAnimationThread.start();
+        try{
+            grabAnimationThread.wait();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -121,7 +127,10 @@ class MainFrame extends JFrame {
             @Override
             public void mouseClicked(MouseEvent mouseEvent) {
                 loopAnimationThread.stop();
-                grabAnimationThread.start();
+
+                if(grabAnimationThread.isAlive()) {
+                    grabAnimationThread.notify();
+                }
 
             }
 
