@@ -8,20 +8,22 @@ Obliczenie liczby płaszczyzn powstałych poprzez przecięcia kół. Dane są ś
 Program okienkowy wykonujący zamówienia na dostarczenie pizzy. Użytkownik ma definiować typ pizzy, liczbę sztuk, godzinę dostarczenia i adres docelowy. 
 Program realizuje dostarczenie zlecenia, na konkretny region przypada dany dostawca.
 Program przydziela dostawcy zamówienie, oraz musi rozliczać (spóźnienie = 10% rabatu) 
-Silnikiem ma być klasa zawierająca bzę aktualnych zamówień
+Silnikiem ma być klasa zawierająca bazę aktualnych zamówień
 Mają powstawać statystyki dzienne
 
-###28.11.16
-Stwórz grę, w której poruszajcy się chwytak ma zbierać leżące na dole okna piłeczki. Chwytak ma obracać wokoło punktu, po naciśnięciu przycisku wydłuża się i trafia/nie trafia piłeczkę. Dodatkowo, może być element losowości. Nie wolno używać elementów graficznych, bitmap, itd. Tylko grafika wektorowa. Bazowane na kodzie od Kubika.
+###28.11.16 / 3,5
+Stwórz grę, w której poruszający się chwytak ma zbierać leżące na dole okna piłeczki. Chwytak ma obracać wokoło punktu, po naciśnięciu przycisku wydłuża się i trafia/nie trafia piłeczkę. Dodatkowo, może być element losowości. Nie wolno używać elementów graficznych, bitmap, itd. Tylko grafika wektorowa. Bazowane na kodzie od Kubika.
 
 ###12.12.16
-Napisz wielowątkowy program, w którym na taśmie poruszanej przez wątek, pojawiają się elementy podawane przez wątki. W jednym czasie dostep do jednego elementu może mieć tylko jeden wątek. 2 wątki mają dodawać elementy do listy, a 4 odbierać. Elementami mają byc losowo generowane numery. Taśma ma mieć 7 miejsc na elementy, a kazdy wątek konfigurowalny czas. 3 klasy wątków, z parametryzowanym konstruktorem.
+Napisz wielowątkowy program, w którym na taśmie poruszanej przez wątek, pojawiają się elementy podawane przez wątki. W jednym czasie dostęp do jednego elementu może mieć tylko jeden wątek. 2 wątki mają dodawać elementy do listy, a 4 odbierać. Elementami mają być losowo generowane numery. Taśma ma mieć 7 miejsc na elementy, a każdy wątek konfigurowalny czas. 3 klasy wątków, z parametryzowanym konstruktorem.
 
-   x   y   y
-z--ooooooooo
-z--ooooooooo
-   x   y   y
-
-z - Napęd taśmy
-x - Wątki dodające
-y - wątki zbierające
+	    x   y   y
+	    ↓   ↑   ↑
+    z → ooooooooo
+    z → ooooooooo
+        ↑   ↓   ↓
+        x   y   y
+    
+    z - Napęd taśmy
+    x - Wątki dodające
+    y - wątki zbierające
