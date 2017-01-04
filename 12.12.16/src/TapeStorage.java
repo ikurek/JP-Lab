@@ -30,6 +30,13 @@ public class TapeStorage {
 
     }
 
+    //Ustawia nową tablicę dwuwymiarową
+    public void setTapeFields(Integer[][] tapeFields) {
+
+        this.tapeFields = tapeFields;
+
+    }
+
     //Zwraca wartośc w danym polu
     public Integer getValueInField(int row, int column) {
 

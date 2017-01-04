@@ -9,6 +9,7 @@ import javax.swing.table.DefaultTableModel;
 public class MainWindow extends JFrame {
     DefaultTableModel tableModel = new DefaultTableModel(15, 30);
     TapeStorage tapeStorage = new TapeStorage();
+    EngineControl engineControl = new EngineControl();
     private JSpinner spinnerSpeed;
     private JTable tableUI;
     private JButton buttonStart;
@@ -24,6 +25,13 @@ public class MainWindow extends JFrame {
         PrintTapeStorage();
         pack();
         setVisible(true);
+
+        //TODO: TEMP DO TESTÓW!!!
+        this.tapeStorage = engineControl.AddNewElementToTapeStorage(tapeStorage);
+        PrintTapeStorage();
+        this.tapeStorage = engineControl.PushTapeElementsForward(tapeStorage);
+        PrintTapeStorage();
+
     }
 
     //Konfiguracja tabeli
