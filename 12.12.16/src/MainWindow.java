@@ -7,13 +7,14 @@ import javax.swing.table.DefaultTableModel;
 
 //Zawiera okno z tabelą jako GUI
 public class MainWindow extends JFrame {
+    public TapeStorage tapeStorage = new TapeStorage();
     DefaultTableModel tableModel = new DefaultTableModel(15, 30);
-    TapeStorage tapeStorage = new TapeStorage();
     EngineControl engineControl = new EngineControl();
     private JSpinner spinnerSpeed;
     private JTable tableUI;
     private JButton buttonStart;
     private JPanel mainJPanel;
+
 
     public MainWindow() {
         super("Rare Pepe");
@@ -26,11 +27,6 @@ public class MainWindow extends JFrame {
         pack();
         setVisible(true);
 
-        //TODO: TEMP DO TESTÓW!!!
-        this.tapeStorage = engineControl.AddNewElementToTapeStorage(tapeStorage);
-        PrintTapeStorage();
-        this.tapeStorage = engineControl.PushTapeElementsForward(tapeStorage);
-        PrintTapeStorage();
 
     }
 
@@ -66,14 +62,20 @@ public class MainWindow extends JFrame {
     }
 
     //Drukuje na ekran aktualną zawartość taśmy
-    //TODO: Powinno nie wyświetlać nic jeżeli pole jest puste, ale nie wiem jak zrobić wyświetlanie pustej kratki (jeszcze)
+    //Zastępuje 0 pustym miejscem
     public void PrintTapeStorage() {
 
-        Integer[][] valuesInTapeStorage = tapeStorage.getTapeFields();
+        Integer[][] valuesInTapeStorage = this.tapeStorage.getTapeFields();
 
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 12; j++) {
-                tableUI.setValueAt(valuesInTapeStorage[i][j], 7 + i, 5 + j);
+                if (valuesInTapeStorage[i][j] != 0 && valuesInTapeStorage[i][j] != null) {
+                    tableUI.setValueAt(valuesInTapeStorage[i][j], 7 + i, 5 + j);
+                    System.out.println("Printed cell " + i + " - " + j);
+                } else {
+                    tableUI.setValueAt(null, 7 + i, 5 + j);
+                    System.out.println("Nullified cell " + i + " - " + j);
+                }
             }
         }
 

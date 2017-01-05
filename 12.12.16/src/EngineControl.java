@@ -48,4 +48,13 @@ public class EngineControl {
 
         return tapeStorage;
     }
+
+    public TapeStorage RemoveElementFromTapeStorage(TapeStorage tapeStorage, int row, int column) {
+
+        Integer[][] oldTapeStorageElements = tapeStorage.getTapeFields();
+        oldTapeStorageElements[row][column] = 0;
+        tapeStorage.setTapeFields(oldTapeStorageElements);
+
+        return tapeStorage;
+    }
 }
