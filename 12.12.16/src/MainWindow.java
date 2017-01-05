@@ -27,7 +27,14 @@ public class MainWindow extends JFrame {
         pack();
         setVisible(true);
 
+        Thread coreThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Core();
+            }
+        });
 
+        coreThread.start();
     }
 
     //Konfiguracja tabeli
@@ -81,4 +88,25 @@ public class MainWindow extends JFrame {
 
     }
 
+    public void Core() {
+
+        Thread pushThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                tapeStorage = engineControl.PushTapeElementsForward(tapeStorage);
+                PrintTapeStorage();
+            }
+        });
+
+        Thread addThread = new Thread(new Runnable() {
+            @Override
+            public void run() {
+                tapeStorage = engineControl.AddNewElementToTapeStorage(tapeStorage);
+                PrintTapeStorage();
+            }
+        });
+
+        addThread.start();
+        pushThread.start();
+    }
 }
