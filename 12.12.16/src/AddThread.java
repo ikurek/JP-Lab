@@ -1,9 +1,9 @@
 /**
  * Created by igor on 06.01.17.
  */
-public class AddThread extends Thread {
+class AddThread extends Thread {
 
-    public EngineControl engineControl = new EngineControl();
+    private final EngineControl engineControl = new EngineControl();
 
     public void run() {
         MainWindow.tapeStorage = engineControl.AddNewElementToTapeStorage(MainWindow.tapeStorage);

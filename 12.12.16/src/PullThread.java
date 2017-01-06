@@ -1,11 +1,11 @@
 /**
  * Created by igor on 06.01.17.
  */
-public class PullThread extends Thread {
+class PullThread extends Thread {
 
-    public EngineControl engineControl = new EngineControl();
-    Integer row;
-    Integer column;
+    private final EngineControl engineControl = new EngineControl();
+    private final Integer row;
+    private final Integer column;
 
     public PullThread(int row, int column) {
         this.row = row;

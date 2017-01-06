@@ -3,7 +3,7 @@ import java.util.Random;
 /**
  * Created by igor on 04.01.17.
  */
-public class EngineControl {
+class EngineControl {
 
 
     //Pusty konstruktorek
@@ -17,8 +17,8 @@ public class EngineControl {
 
         Random random = new Random();
 
-        tapeStorage.setValueInField(0, 0, random.nextInt(9) + 1);
-        tapeStorage.setValueInField(1, 0, random.nextInt(9) + 1);
+        tapeStorage.setValueInField(0, random.nextInt(9) + 1);
+        tapeStorage.setValueInField(1, random.nextInt(9) + 1);
 
         return tapeStorage;
     }

@@ -1,9 +1,9 @@
 /**
  * Created by igor on 06.01.17.
  */
-public class PushThread extends Thread {
+class PushThread extends Thread {
 
-    public EngineControl engineControl = new EngineControl();
+    private final EngineControl engineControl = new EngineControl();
 
     public void run() {
         MainWindow.tapeStorage = engineControl.PushTapeElementsForward(MainWindow.tapeStorage);

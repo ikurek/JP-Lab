@@ -4,7 +4,7 @@
 public class TapeStorage {
 
     //Powinna być tablica ale tak jest łatwiej z dostępem
-    Integer[][] tapeFields = new Integer[2][12];
+    private Integer[][] tapeFields = new Integer[2][12];
 
     public TapeStorage() {
 
@@ -14,13 +14,6 @@ public class TapeStorage {
                 this.tapeFields[i][j] = 0;
             }
         }
-    }
-
-    //Sprawdza czy wartość w danym polu taśmy jest równa 0
-    public boolean isFieldEmpty(int row, int column) {
-
-        return this.tapeFields[row][column] == 0;
-
     }
 
     //Zwraca tablicę dwuwymiarową z danymi na taśmie
@@ -38,16 +31,16 @@ public class TapeStorage {
     }
 
     //Zwraca wartośc w danym polu
-    public Integer getValueInField(int row, int column) {
+    public Integer getValueInField(int column) {
 
-        return this.tapeFields[row][column];
+        return this.tapeFields[0][column];
 
     }
 
     //Ustawia wartość w danym polu
-    public void setValueInField(int row, int column, int value) {
+    public void setValueInField(int row, int value) {
 
-        this.tapeFields[row][column] = value;
+        this.tapeFields[row][0] = value;
 
     }
 }
