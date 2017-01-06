@@ -16,7 +16,7 @@ public class PushThread extends Thread {
 
         try {
             Thread.sleep(MainWindow.sleep);
-        } catch (InterruptedException e){
+        } catch (InterruptedException e) {
             System.out.print("pushThread sleep failed: " + e.toString() + "\n");
         }
 

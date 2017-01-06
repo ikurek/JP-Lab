@@ -13,21 +13,21 @@ public class MainWindow extends JFrame {
     //Deklaracje zmiennych
     public static TapeStorage tapeStorage = new TapeStorage();
     public static EngineControl engineControl = new EngineControl();
+    //Wartości
+    public static Integer spaces = 1;
+    public static Integer sleep = 3000;
+    public Integer canAddNew = 0;
+    public Integer canPull1 = 1;
     DefaultTableModel tableModel = new DefaultTableModel(15, 30);
+    //Wątki
+    Thread addThread = new AddThread();
+    Thread pushThread = new PushThread();
+    Thread pullThread;
     private JSpinner spinnerSpaces;
     private JTable tableUI;
     private JButton buttonStart;
     private JPanel mainJPanel;
     private JSpinner spinnerSleep;
-
-    //Wątki
-    Thread addThread = new AddThread();
-    Thread pushThread = new PushThread();
-
-    //Wartości
-    public static Integer spaces = 1;
-    public static Integer sleep = 3000;
-    public Integer canAddNew = 0;
 
 
     public MainWindow() {
@@ -50,11 +50,11 @@ public class MainWindow extends JFrame {
                 while (true) {
 
 
-
                     try {
-
+                        canPull1++;
+                        System.out.println("Current canPull1 value: " + canPull1);
                         //Zwiększa licznik, jeżeli jest równy dodaje nowy element
-                        if(canAddNew == spaces) {
+                        if (canAddNew == spaces) {
                             addThread.start();
                             addThread.join();
                             canAddNew = 0;
@@ -67,7 +67,28 @@ public class MainWindow extends JFrame {
                         //Przesuwa taśmę o 1 w prawo
                         pushThread.start();
                         pushThread.join();
+
                         PrintTapeStorage();
+
+                        if (canPull1 >= 2 && MainWindow.tapeStorage.getValueInField(0, 8) != 0) {
+
+
+                            //Pierwszy rząd wartości
+                            pullThread = new PullThread(0, 8);
+                            pullThread.start();
+                            pullThread.join();
+                            PrintTapeStorage();
+
+                            //Drugi rząd wartości
+                            pullThread = new PullThread(1, 8);
+                            pullThread.start();
+                            pullThread.join();
+                            PrintTapeStorage();
+
+                            //Zerowanie licznika
+                            canPull1 = 0;
+                        }
+
 
                     } catch (InterruptedException e) {
                         e.printStackTrace();
@@ -84,7 +105,7 @@ public class MainWindow extends JFrame {
             public void actionPerformed(ActionEvent actionEvent) {
                 spaces = Integer.valueOf(spinnerSpaces.getValue().toString());
                 sleep = Integer.valueOf(spinnerSleep.getValue().toString());
-                if(startMeUp.isAlive()) {
+                if (startMeUp.isAlive()) {
                     startMeUp.interrupt();
                 } else {
                     startMeUp.start();
@@ -130,7 +151,7 @@ public class MainWindow extends JFrame {
     //Zastępuje 0 pustym miejscem
     public void PrintTapeStorage() {
 
-        Integer[][] valuesInTapeStorage = this.tapeStorage.getTapeFields();
+        Integer[][] valuesInTapeStorage = MainWindow.tapeStorage.getTapeFields();
 
         for (int i = 0; i < 2; i++) {
             for (int j = 0; j < 12; j++) {
