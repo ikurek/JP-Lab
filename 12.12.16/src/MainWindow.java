@@ -1,5 +1,7 @@
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Created by igor on 03.01.17.
@@ -22,47 +24,74 @@ public class MainWindow extends JFrame {
     Thread addThread = new AddThread();
     Thread pushThread = new PushThread();
 
+    //Wartości
+    public static Integer spaces = 1;
+    public static Integer sleep = 3000;
+    public Integer canAddNew = 0;
+
 
     public MainWindow() {
         super("Rare Pepe");
         setContentPane(mainJPanel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        spinnerSleep.setValue(3000);
+        spinnerSpaces.setValue(1);
         SetupTable();
         DrawTableUI();
         PrintTapeStorage();
         pack();
         setVisible(true);
 
-
-
-        Thread updateUIThread = new Thread(new Runnable() {
+        //Wątek zawiera pętle odpalającą inne wątki
+        Thread startMeUp = new Thread(new Runnable() {
             @Override
             public void run() {
-                PrintTapeStorage();
+                while (true) {
+
+
+
+                    try {
+
+                        //Zwiększa licznik, jeżeli jest równy dodaje nowy element
+                        if(canAddNew == spaces) {
+                            addThread.start();
+                            addThread.join();
+                            canAddNew = 0;
+                        } else {
+                            canAddNew++;
+                        }
+
+                        PrintTapeStorage();
+
+                        //Przesuwa taśmę o 1 w prawo
+                        pushThread.start();
+                        pushThread.join();
+                        PrintTapeStorage();
+
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+
+                }
             }
         });
 
-        while (true) {
 
+        //Listener do guzika
+        buttonStart.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent actionEvent) {
+                spaces = Integer.valueOf(spinnerSpaces.getValue().toString());
+                sleep = Integer.valueOf(spinnerSleep.getValue().toString());
+                if(startMeUp.isAlive()) {
+                    startMeUp.interrupt();
+                } else {
+                    startMeUp.start();
+                }
 
-
-            try {
-                addThread.start();
-                addThread.join();
-
-                PrintTapeStorage();
-
-                pushThread.start();
-                pushThread.join();
-                PrintTapeStorage();
-
-            } catch (InterruptedException e) {
-                e.printStackTrace();
             }
-
-        }
-
+        });
     }
 
 

@@ -15,9 +15,9 @@ public class AddThread extends Thread {
         run();
 
         try {
-            Thread.sleep(3000);
+            Thread.sleep(MainWindow.sleep);
         } catch (InterruptedException e){
-            System.out.print("addThread sleep failed: " + e.toString());
+            System.out.print("addThread sleep failed: " + e.toString() + "\n");
         }
 
         System.out.println("addThread Finished");
