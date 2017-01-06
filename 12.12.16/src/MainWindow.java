@@ -18,6 +18,7 @@ public class MainWindow extends JFrame {
     public static Integer sleep = 3000;
     public Integer canAddNew = 0;
     public Integer canPull1 = 1;
+    public Integer canPull2 = 1;
     DefaultTableModel tableModel = new DefaultTableModel(15, 30);
     //Wątki
     Thread addThread = new AddThread();
@@ -53,6 +54,8 @@ public class MainWindow extends JFrame {
                     try {
                         canPull1++;
                         System.out.println("Current canPull1 value: " + canPull1);
+                        canPull2++;
+                        System.out.println("Current canPull2 value: " + canPull2);
                         //Zwiększa licznik, jeżeli jest równy dodaje nowy element
                         if (canAddNew == spaces) {
                             addThread.start();
@@ -87,6 +90,25 @@ public class MainWindow extends JFrame {
 
                             //Zerowanie licznika
                             canPull1 = 0;
+                        }
+
+                        if (canPull2 >= 2 && MainWindow.tapeStorage.getValueInField(0, 10) != 0) {
+
+
+                            //Pierwszy rząd wartości
+                            pullThread = new PullThread(0, 10);
+                            pullThread.start();
+                            pullThread.join();
+                            PrintTapeStorage();
+
+                            //Drugi rząd wartości
+                            pullThread = new PullThread(1, 10);
+                            pullThread.start();
+                            pullThread.join();
+                            PrintTapeStorage();
+
+                            //Zerowanie licznika
+                            canPull2 = 0;
                         }
 
 
