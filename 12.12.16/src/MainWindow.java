@@ -7,13 +7,20 @@ import javax.swing.table.DefaultTableModel;
 
 //Zawiera okno z tabelą jako GUI
 public class MainWindow extends JFrame {
-    public TapeStorage tapeStorage = new TapeStorage();
+
+    //Deklaracje zmiennych
+    public static TapeStorage tapeStorage = new TapeStorage();
+    public static EngineControl engineControl = new EngineControl();
     DefaultTableModel tableModel = new DefaultTableModel(15, 30);
-    EngineControl engineControl = new EngineControl();
-    private JSpinner spinnerSpeed;
+    private JSpinner spinnerSpaces;
     private JTable tableUI;
     private JButton buttonStart;
     private JPanel mainJPanel;
+    private JSpinner spinnerSleep;
+
+    //Wątki
+    Thread addThread = new AddThread();
+    Thread pushThread = new PushThread();
 
 
     public MainWindow() {
@@ -27,15 +34,37 @@ public class MainWindow extends JFrame {
         pack();
         setVisible(true);
 
-        Thread coreThread = new Thread(new Runnable() {
+
+
+        Thread updateUIThread = new Thread(new Runnable() {
             @Override
             public void run() {
-                Core();
+                PrintTapeStorage();
             }
         });
 
-        coreThread.start();
+        while (true) {
+
+
+
+            try {
+                addThread.start();
+                addThread.join();
+
+                PrintTapeStorage();
+
+                pushThread.start();
+                pushThread.join();
+                PrintTapeStorage();
+
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+        }
+
     }
+
 
     //Konfiguracja tabeli
     public void SetupTable() {
@@ -78,35 +107,12 @@ public class MainWindow extends JFrame {
             for (int j = 0; j < 12; j++) {
                 if (valuesInTapeStorage[i][j] != 0 && valuesInTapeStorage[i][j] != null) {
                     tableUI.setValueAt(valuesInTapeStorage[i][j], 7 + i, 5 + j);
-                    System.out.println("Printed cell " + i + " - " + j);
                 } else {
                     tableUI.setValueAt(null, 7 + i, 5 + j);
-                    System.out.println("Nullified cell " + i + " - " + j);
                 }
             }
         }
 
     }
 
-    public void Core() {
-
-        Thread pushThread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                tapeStorage = engineControl.PushTapeElementsForward(tapeStorage);
-                PrintTapeStorage();
-            }
-        });
-
-        Thread addThread = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                tapeStorage = engineControl.AddNewElementToTapeStorage(tapeStorage);
-                PrintTapeStorage();
-            }
-        });
-
-        addThread.start();
-        pushThread.start();
-    }
 }

@@ -23,6 +23,8 @@ public class EngineControl {
         return tapeStorage;
     }
 
+    //Przesuwa elementy taśmy o 1 w prawo
+    //Na pierwszej pozycji dopisuje 0
     public TapeStorage PushTapeElementsForward(TapeStorage tapeStorage) {
 
         //Zczytaj stary aray i stwórz nowy
@@ -49,6 +51,8 @@ public class EngineControl {
         return tapeStorage;
     }
 
+    //Zastępuje element z tablicy zerem
+    //Przyjmuje tapeStorage, rząd i kolumnę do usunięcia
     public TapeStorage RemoveElementFromTapeStorage(TapeStorage tapeStorage, int row, int column) {
 
         Integer[][] oldTapeStorageElements = tapeStorage.getTapeFields();
