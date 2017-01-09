@@ -29,7 +29,7 @@ class MainWindow extends JFrame {
 
 
     public MainWindow() {
-        super("Rare Pepe");
+        super("Transmisja 2.1");
         setContentPane(mainJPanel);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
