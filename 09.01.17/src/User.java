@@ -6,9 +6,9 @@ import java.net.InetAddress;
 import java.net.Socket;
 
 public class User implements Runnable {
+    private static final int SERVER_PORT = 15000;
     private UserClock userClock = new UserClock(this);
     private UserGui gui;
-    private static final int SERVER_PORT = 15000;
     private String nick;
     private String host;
     private Socket socket;
@@ -23,7 +23,17 @@ public class User implements Runnable {
         (new Thread(this)).start();
     }
 
+    public static void main(String[] args) {
+        String nick;
 
+        nick = JOptionPane.showInputDialog("Podaj nazwe klienta");
+        if (nick != null && !nick.equals("")) {
+            new User(nick);
+        }
+    }
+
+    //Tworzy socket kliencki i łączy się z serwerem
+    //Sprawdza czy bramka jest otwarta oraz czy nick nie jest zajęty
     public void run() {
         try {
             host = InetAddress.getLocalHost().getHostName();
@@ -31,7 +41,7 @@ public class User implements Runnable {
             input = new ObjectInputStream(socket.getInputStream());
             output = new ObjectOutputStream(socket.getOutputStream());
             output.writeObject(nick);
-            gui = new UserGui(nick, Integer.toString(socket.getPort()), host, this);//Tworzenie gui
+            gui = new UserGui(nick, Integer.toString(socket.getPort()), host, this);
         } catch (IOException e) {
             System.out.println(e.getMessage());
             JOptionPane.showMessageDialog(null, "Polaczenie sieciowe dla klienta nie moze byc utworzone");
@@ -72,6 +82,8 @@ public class User implements Runnable {
         }
     }
 
+    //Wysyłą sygnał przejścia przez bramkę
+    //$GO$
     void go() {
         try {
             output.writeObject("$GO$");
@@ -80,30 +92,25 @@ public class User implements Runnable {
         }
     }
 
+    //Automatycznie wysyła sygnał przejścia przez bramke co jakiś czas
     void goAuto() {
         userClock.changeFreezeState();
     }
 
-    void setCurrentFrequency(int i) {
-        currentFrequency = i;
-    }
-
+    //Zbiera aktualną częstotliwość automatycznego przesyłu
+    //Potrzebne do aktualizowania jeżeli user zmieni częstotliwość
     int getCurrentFrequency() {
         return currentFrequency;
+    }
+
+    //Ustawia częstotliwość wysyłania automatycznego sygnału przejścia
+    void setCurrentFrequency(int i) {
+        currentFrequency = i;
     }
 
     private void kill() {
         if (userClock != null) userClock.kill();
         gui.kill();
-    }
-
-    public static void main(String[] args) {
-        String nick;
-
-        nick = JOptionPane.showInputDialog("Podaj nazwe klienta");
-        if (nick != null && !nick.equals("")) {
-            new User(nick);
-        }
     }
 }
 

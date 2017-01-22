@@ -9,9 +9,9 @@ import java.net.Socket;
 //Zlicza liczbę przejść przez bramkę
 public class Monitor implements Runnable {
 
+    private static final int SERVER_PORT = 15000;
     private MonitorGui gui = new MonitorGui();
     private MonitorClock monitorClock;
-    private static final int SERVER_PORT = 15000;
     private String host;
     private Socket socket;
     private ObjectOutputStream output;
@@ -23,6 +23,14 @@ public class Monitor implements Runnable {
         (new Thread(this)).start();
     }
 
+
+    //Towrzy socket monitora, odbiera dane o przejściu przez bramkę
+    //uruchamia się w momencie utworzenia obiektu
+
+    //Main dla monitora
+    public static void main(String[] args) {
+        new Monitor();
+    }
 
     public void run() {
         try {
@@ -41,13 +49,13 @@ public class Monitor implements Runnable {
         try {
             while (!kill) {
                 String s = (String) input.readObject();
-                String nick="error",value="error";
+                String nick = "error", value = "error";
                 if (s.equals("$START$")) {
                     s = (String) input.readObject();
-                    while(!s.equals("$END$")) {
+                    while (!s.equals("$END$")) {
                         value = s.substring(s.indexOf("$") + 1, s.length());
                         nick = s.substring(0, s.indexOf("$"));
-                        gui.addGateway(nick,value);
+                        gui.addGateway(nick, value);
                         s = (String) input.readObject();
                     }
                 }
@@ -73,10 +81,5 @@ public class Monitor implements Runnable {
     private void kill() {
         if (monitorClock != null) monitorClock.kill();
         gui.kill();
-    }
-
-    //Main dla monitora
-    public static void main(String[] args) {
-        new Monitor();
     }
 }

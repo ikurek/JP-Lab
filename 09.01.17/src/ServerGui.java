@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.util.ArrayList;
 
-
+//GUI dla serwera
 class ServerGui extends JFrame {
     private ArrayList<JButton> buttons = new ArrayList<>();
     private JPanel panel = new JPanel();
@@ -16,6 +16,7 @@ class ServerGui extends JFrame {
         setVisible(true);
     }
 
+    //Tworzy guzik dla nowej bramki na serwerze
     void addGateway(String nick) {
         JButton b = new JButton(nick);
         b.addActionListener(e -> server.changeStateOfGateway(b.getText()));

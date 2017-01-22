@@ -7,11 +7,11 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class Server implements Runnable {
+    private static final int SERVER_PORT = 15000;
     private ServerGui gui = new ServerGui(this);
     private HashMap<String, Gateway> gateways = new HashMap<>();
     private ArrayList<Gateway> monitors = new ArrayList<>();
     private volatile boolean kill = false;
-    private static final int SERVER_PORT = 15000;
     private String host;
     private ServerSocket server;
 
@@ -20,16 +20,25 @@ public class Server implements Runnable {
         (new Thread(this)).start();
     }
 
+    //Main serwera
+    public static void main(String[] args) {
+        new Server();
+    }
+
+    //Dodaje bramkę i jej GUI
     synchronized void addClient(String nick, Gateway gateway) {
         gateways.put(nick, gateway);
         gui.addGateway(nick);
     }
 
+    //Usuwa klienta(bramke)
     synchronized void deleteClient(Gateway gateway) {
         gateways.remove(gateway.getNick());
     }
 
-
+    //Odpala cały serwer
+    //Uruchamia się w momencie utworzenia obiektu
+    //TODO: Akceptuje wszystkie przychodzące połączenia. Przydało by sie określić które powinno puszczać
     public void run() {
         Socket s;
         try {
@@ -59,11 +68,9 @@ public class Server implements Runnable {
         }
     }
 
-
-    public static void main(String[] args) {
-        new Server();
-    }
-
+    //Sprawdza co dotarło do bramki
+    //$GO$ oznacza przejście
+    //$BLOCKED$ oznacza zablokowanie bramki
     void useCommand(Gateway gateway) {
         String s = "error";
         try {
@@ -79,6 +86,11 @@ public class Server implements Runnable {
         }
     }
 
+    //Odbiera sygnały które docierają do bramki
+    //$PING$
+    //$START$
+    //$END$
+    //Wysyła informacje o stanie licznika bramki do monitora
     void useMonitor(Gateway monitor) {
         String s = "error";
         try {
@@ -95,12 +107,17 @@ public class Server implements Runnable {
         }
     }
 
+    //Zmienia stan bramki (zamknięta/otwarta)
+    //$BLOCKED$
+    //$OPEN$
     void changeStateOfGateway(String s) {
         gateways.get(s).changeStateOfGateway();
         if (gateways.get(s).isGatewayBlocked()) gateways.get(s).out("$BLOCKED$");
         else gateways.get(s).out("$OPEN$");
     }
 
+    //Sprawdza czy istniej już bramka o takiej nazwie
+    //Pozwala na nadpisywanie bramki
     boolean isNickTaken(String nick) {
         return gateways.containsKey(nick);
     }

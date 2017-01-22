@@ -1,3 +1,6 @@
+//Funkcja monitorująca dla bramek
+//Odpowiada za zatrzymanie bramek itd
+
 public class UserClock implements Runnable {
     private boolean kill = false;
     private boolean freeze = true;
@@ -8,6 +11,9 @@ public class UserClock implements Runnable {
         (new Thread(this)).start();
     }
 
+    //uruchamia się przy tworzeniu bramki
+    //W momencie gdy jest freeze nie dzieje się nic
+    //Jeżeli !freze może rejestrować
     @Override
     public void run() {
         while (!kill) {

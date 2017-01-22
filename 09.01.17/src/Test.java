@@ -1,4 +1,4 @@
-
+//Klasa uruchamia pozostałe okna, cały program, itd.
 public class Test {
     public static void main(String[] args) {
         new Server();

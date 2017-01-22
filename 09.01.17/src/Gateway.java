@@ -95,7 +95,7 @@ public class Gateway implements Runnable {
         gatewayCounter++;
     }
 
-    //Przyjmuje string, który nastepnie przekazuje przez output
+    //Funkcja wysyła string do klienta
     void out(String s) {
         try {
             output.writeObject(s);

@@ -2,6 +2,8 @@ import javax.swing.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 
+//GUI monitora
+//Jak sama nazwa wskazuje
 class MonitorGui extends JFrame {
     private HashMap<String, String> values = new HashMap<>();
     private ArrayList<JLabel> labels = new ArrayList<>();
@@ -15,6 +17,8 @@ class MonitorGui extends JFrame {
         setVisible(true);
     }
 
+    //Tworzy GUI dla nowej bramki
+    //Jeżeli bramka o takiej same nazwie już istnieje to zastępuje starą
     void addGateway(String nick, String value) {
         if (values.containsKey(nick)) {
             values.replace(nick, value);
