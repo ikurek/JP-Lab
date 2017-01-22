@@ -50,7 +50,6 @@ public class Server implements Runnable {
             gui.kill();
             System.exit(0);
         }
-        System.out.println("Server zostal uruchomiony na hoscie " + host);
 
         while (!kill) {
             try {
