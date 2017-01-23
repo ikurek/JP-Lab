@@ -35,7 +35,7 @@ W projekcie mają powstać 3 aplikacje (3 klasy Main()), jedno gniazdo serwerowe
 - Monitor - Port
 
 ### 23.01.17
-Poprzedni projekt należy wykonać z wykorzystaniem metodyki RMI.
+Poprzedni projekt należy wykonać z wykorzystaniem metodyki RMI. Tworzenie rejestru RMI przez `Registry r = LocateRegistry.createRegistry(...)`, znajdowanie go poprzez `Registry r = LocateRegistry.getRegistry(...)` i `r.Lookup(...)`
 
 Interfejs bramki:
 
@@ -52,7 +52,7 @@ Interfejs Centrali:
 			boolean RejestrujMonitor(Object o) throws RemoteException;
 		}
 
-Interfejs Monitora (dostaje listę bramek, phyta o liczniki, otrzymuje informację "zmiana"):
+Interfejs Monitora (dostaje listę bramek, pyta o liczniki, otrzymuje informację "zmiana"):
 
     Interface IMonitor {
 			zmiana(Object o, String nazwa, int status) throws RemoteException;

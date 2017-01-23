@@ -15,8 +15,7 @@ public class Test {
         System.out.println("Bramka 1: OK");
         new User("Bramka 2");
         System.out.println("Bramka 2: OK");
-        new User("Bramka 3");
-        System.out.println("Bramka 3: OK");
+
 
         System.out.println("Funkcja testu zakończona!");
     }

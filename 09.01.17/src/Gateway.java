@@ -58,6 +58,8 @@ public class Gateway implements Runnable {
     //Wykonuje się w momencie uruchomienia wątku
     //Sprawdza czy nick nie jest zajęty, czy jest odpowiedni monitor etc.
     //Jezeli wszystko jest ok dodaje bramkę do servera
+    //$TAKEN$
+    //$MONITOR$
     public void run() {
         try {
             output = new ObjectOutputStream(socket.getOutputStream());
