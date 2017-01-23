@@ -33,3 +33,27 @@ W projekcie mają powstać 3 aplikacje (3 klasy Main()), jedno gniazdo serwerowe
 - Centrala - Host, dwa porty
 - Bramka - Host, dwa porty
 - Monitor - Port
+
+### 23.01.17
+Poprzedni projekt należy wykonać z wykorzystaniem metodyki RMI.
+
+Interfejs bramki:
+
+    Interface IBramka {
+			int GetStatus() throws RemoteException;
+			int GetNumber() throws RemoteException;
+			void SetStatus() throws RemoteException
+		}
+
+Interfejs Centrali:
+
+    Interface ICentrala {
+			boolean RejestrujBramke(Object o, String nazwa) throws RemoteException;
+			boolean RejestrujMonitor(Object o) throws RemoteException;
+		}
+
+Interfejs Monitora (dostaje listę bramek, phyta o liczniki, otrzymuje informację "zmiana"):
+
+    Interface IMonitor {
+			zmiana(Object o, String nazwa, int status) throws RemoteException;
+		}
