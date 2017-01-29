@@ -18,7 +18,7 @@ public class Test {
             e.printStackTrace();
         }
         System.out.println("Starting bramka...");
-        //BramkaMain bramkaMain = new BramkaMain();
+        BramkaMain bramkaMain = new BramkaMain();
     }
 
 }

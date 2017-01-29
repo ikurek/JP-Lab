@@ -6,7 +6,7 @@ import java.rmi.server.UnicastRemoteObject;
  */
 public class Bramka extends UnicastRemoteObject implements BramkaInterface {
 
-    public Bramka() throws RemoteException {
+    Bramka() throws RemoteException {
 
     }
 
