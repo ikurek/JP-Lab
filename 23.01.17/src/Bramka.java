@@ -6,23 +6,27 @@ import java.rmi.server.UnicastRemoteObject;
  */
 public class Bramka extends UnicastRemoteObject implements BramkaInterface {
 
-    Bramka() throws RemoteException {
+    String status = "Otwarta";
+    Integer number = 0;
+
+     Bramka() throws RemoteException {
 
     }
 
     @Override
     public String GetStatus() throws RemoteException {
-        System.out.println("Bramka zwróciłą status");
-        return "GetStatus done";
+        System.out.println("Bramka zwróciłą status: " + status);
+        return status;
     }
 
     @Override
     public int GetNumber() throws RemoteException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return number;
     }
 
     @Override
     public void SetStatus() throws RemoteException {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        if(status=="Otwarta") status = "Zamknięta";
+        else if(status=="Zamknięta") status = "Otwarta";
     }
 }

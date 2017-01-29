@@ -7,10 +7,12 @@ import static java.lang.Thread.sleep;
  * Created by igor on 29.01.17.
  */
 public class ServerMain implements Runnable {
-    public Boolean shouldGetValue = false;
+    public Boolean shouldGetStatus = false;
+    public Boolean shouldChangeStatus = false;
     public Boolean kill = false;
     Bramka bramka;
     Server server;
+    ServerGui serverGui;
 
     ServerMain() {
         new Thread(this).start();
@@ -22,8 +24,11 @@ public class ServerMain implements Runnable {
     }
 
     public void changeShouldGetValue() {
-        System.out.println("Changevalue called");
-        this.shouldGetValue = !shouldGetValue;
+        this.shouldGetStatus = !shouldGetStatus;
+    }
+
+    public void changeShouldSetValue() {
+        this.shouldChangeStatus = !shouldChangeStatus;
     }
 
     //Przygotowuje połączenie z bramką
@@ -38,30 +43,44 @@ public class ServerMain implements Runnable {
             reg.rebind("bramka", bramka);
             reg.rebind("server", server);
             System.out.println("Serwer gotowy!");
-            ServerGui serverGui = new ServerGui(this);
+            serverGui = new ServerGui(this);
         } catch (Exception ex) {
             ex.printStackTrace();
         }
         System.out.println("Uruchamianie pętli serwerowej...");
         while (!kill) {
-            if(shouldGetValue){
-                try{
+
+            //Sprawdzenie statusu
+            if (shouldGetStatus) {
+                try {
                     System.out.println(bramka.GetStatus());
-                    this.shouldGetValue = false;
+                    this.shouldGetStatus = false;
                 } catch (Exception exception) {
                     exception.printStackTrace();
                 }
-
             }
-            //Śleep na sekundę
-            //Potrzebny żeby mogła się zmienić wartość zwracająca value
-            //TODO: Jestem złym człowiekiem, i jeszcze gorszym programistą
-            try{
-                sleep(1000);
-            } catch (Exception exception) {
-                exception.printStackTrace();
+//Zmiana statusu
+                if (shouldChangeStatus) {
+                    try {
+                        bramka.SetStatus();
+                        this.shouldChangeStatus = false;
+                    } catch (Exception exception) {
+                        exception.printStackTrace();
+                    }
+
+                }
+
+                serverGui.updateNumber(1);
+
+                //Śleep na sekundę
+                //Potrzebny żeby mogła się zmienić wartość zwracająca value
+                //TODO: Jestem złym człowiekiem, i jeszcze gorszym programistą
+                try {
+                    sleep(100);
+                } catch (Exception exception) {
+                    exception.printStackTrace();
+                }
             }
         }
-    }
 
-}
+    }

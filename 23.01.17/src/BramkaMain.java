@@ -13,7 +13,6 @@ public class BramkaMain {
             Registry myReg = LocateRegistry.getRegistry("127.0.0.1", 1099);
             BramkaInterface m = (BramkaInterface) myReg.lookup("bramka");
             ServerInterface n = (ServerInterface) myReg.lookup("server");
-            System.out.println("Bramka wywołuje getStatus()...");
         } catch (Exception ex) {
             ex.printStackTrace();
         }

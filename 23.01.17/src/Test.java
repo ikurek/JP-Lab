@@ -17,7 +17,7 @@ public class Test {
         catch (Exception e) {
             e.printStackTrace();
         }
-        System.out.println("Starting bramka...");
+        System.out.println("Test uruchamia bramkę...");
         BramkaMain bramkaMain = new BramkaMain();
     }
 
