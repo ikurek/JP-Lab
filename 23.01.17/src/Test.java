@@ -1,22 +1,24 @@
-//Klasa uruchamia pozostałe okna, cały program, itd.
+import static java.lang.Thread.sleep;
+
+/**
+ * Created by igor on 29.01.17.
+ */
 public class Test {
+
     public static void main(String[] args) {
-        System.out.println("Uruchomiono funkcję testu...");
-        new Server();
-        System.out.println("Serwer: OK");
 
-        try {
-            Thread.sleep(1000);
-        } catch (Exception ignored) {
+        System.out.println("Startuje Test...");
+        System.out.println("Test uruchamia serwer...");
+        ServerMain serverMain = new ServerMain();
+        System.out.println("Starting sleep...");
+        try{
+            sleep(1000);
         }
-        new Monitor();
-        System.out.println("Monitor: OK");
-        new User("Bramka 1");
-        System.out.println("Bramka 1: OK");
-        new User("Bramka 2");
-        System.out.println("Bramka 2: OK");
-
-
-        System.out.println("Funkcja testu zakończona!");
+        catch (Exception e) {
+            e.printStackTrace();
+        }
+        System.out.println("Starting bramka...");
+        BramkaMain bramkaMain = new BramkaMain();
     }
+
 }
