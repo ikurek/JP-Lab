@@ -11,4 +11,6 @@ public interface BramkaInterface extends Remote {
     int GetNumber() throws RemoteException;
 
     void SetStatus() throws RemoteException;
+
+    void SetNumber(int number) throws RemoteException;
 }

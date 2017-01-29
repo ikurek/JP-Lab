@@ -15,7 +15,6 @@ public class Bramka extends UnicastRemoteObject implements BramkaInterface {
 
     @Override
     public String GetStatus() throws RemoteException {
-        System.out.println("Bramka zwróciłą status: " + status);
         return status;
     }
 
@@ -28,5 +27,9 @@ public class Bramka extends UnicastRemoteObject implements BramkaInterface {
     public void SetStatus() throws RemoteException {
         if(status=="Otwarta") status = "Zamknięta";
         else if(status=="Zamknięta") status = "Otwarta";
+    }
+
+    public void SetNumber(int number) throws RemoteException {
+         this.number=number;
     }
 }

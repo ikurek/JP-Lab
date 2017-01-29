@@ -16,7 +16,6 @@ public class ServerMain implements Runnable {
 
     ServerMain() {
         new Thread(this).start();
-        System.out.println("ServerMain finished");
     }
 
     public static void main(String[] args) {
@@ -70,7 +69,11 @@ public class ServerMain implements Runnable {
 
                 }
 
-                serverGui.updateNumber(1);
+                try {
+                    serverGui.updateNumber(bramka.GetNumber());
+                } catch (Exception exception) {
+                exception.printStackTrace();
+                }
 
                 //Śleep na sekundę
                 //Potrzebny żeby mogła się zmienić wartość zwracająca value

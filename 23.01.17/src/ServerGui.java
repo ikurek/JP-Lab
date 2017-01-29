@@ -11,7 +11,7 @@ class ServerGui extends JFrame {
     private ServerMain server;
 
     ServerGui(ServerMain server) {
-        super("Server");
+        super("Server+Monitor");
         this.server = server;
         setSize(300, 340);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
